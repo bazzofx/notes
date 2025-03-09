@@ -49,7 +49,7 @@ The DOS/DDoS attacks can be done on each layer of the ISO model, dependig on the
     
 - **MAC Flooding:** Overloads a switch's MAC table, forcing it into a fail-open mode, converting it into a hub and allowing traffic to be sniffed.
         
-- **STP (Spanning Tree Protocol) Attack:** Disrupts network topology by injecting fake STP configurations, causing network instability.
+- **STP (Spanning Tree Protocol) Attack:** Disrupts network topology by injecting fake STP configurations, causing network instability. Usually caused by ==mis-configured Switch Devices== 
         
 ### **Physical Layer (Layer 1):**
     
@@ -161,7 +161,7 @@ hping3 -a <spoof_IP> -p 80 --flood -S <target> --fast
 ```
 
 ### HTTP Flood
-[Lesson 65](https://www.youtube.com/watch?v=F9UoHy4rX4I&ab_channel=NetCatTest)
+[Lesson 65](https://www.youtube.com/watch?v=F9UoHy4rX4I&ab_channel=NetCatTest) #ForkBomb
 Tool: **LOIC**
 Layer: **Application Layer (Layer 7)**
 ![[Pasted image 20250309205900.png]]
@@ -214,6 +214,6 @@ This is a function that will spawn other **children functions** which will eat a
 
 
 ### UDP Flood
-
+![[Pasted image 20250309231632.png]]
 
 Referece:[NetCat Test Youtube Channel](https://www.youtube.com/watch?v=Priw-LhMJDU&ab_channel=NetCatTest)

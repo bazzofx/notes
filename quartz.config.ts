@@ -1,3 +1,4 @@
+import { reduce } from "d3"
 import { QuartzConfig } from "./quartz/cfg"
 import * as Plugin from "./quartz/plugins"
 
