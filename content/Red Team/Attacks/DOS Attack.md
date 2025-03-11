@@ -9,9 +9,8 @@ Utilize other servers the attacker already control to amplify the attack to the 
  Attacking RAM, CPU, Bandwidth, Buffer
 ---
 ### DOS /DDoS Attacks
-The DOS/DDoS attacks can be done on each layer of the ISO model, dependig on the attack
+The DOS/DDoS attacks can be done on each layer of the ISO model, depending on the attack
  ![[Pasted image 20250309124152.png]]
-
 
 ### **Application Layer (Layer 7):**
     
@@ -102,7 +101,7 @@ python3 golden_eye.py “http://example.com”
 ### Low and Low (Slowloris)
 Tool: RUDY (R U Dead Yet?) 
 Layer: Network Layer (Layer 3)
->Open many connections
+>Open many connections, similar to how a user with a slow connection
 >Send packets that will take the longest amount of time to process, our goal is to send Requests to keep the server busy for the longest time possible. 
 >Send small packets (1Byte) every 10 seconds
 #### Install:
@@ -210,4 +209,23 @@ This can be done with any ForLoop() using native BASH, DOS or Powershell
 ### UDP Flood
 ![[Pasted image 20250309231632.png]]
 
-Referece:[NetCat Test Youtube Channel](https://www.youtube.com/watch?v=Priw-LhMJDU&ab_channel=NetCatTest)
+### Home Users
+A lot of home users have their **router**  vulnerable to **UDP Ping of Doom**
+We can check if our router is vulnerable by pinging our **External IP** from outside our network or alternatively
+- We can use a website like [grc.com/shieldsup](https://www.grc.com/shieldsup)
+
+Below is an image showing my router is vulnerable to **ICMP Flood**
+We will have to block ICMP echo replies on the router if we would like to make it more secure.
+>If you have a FireWall on your home, you can change the WAN Settings also
+
+![[Pasted image 20250310002218.png]]
+
+### Stopping DDoS Attack
+#### RRL(Response Rate Limiter)
+This will limit the response that are received by the server, if the server identify **IP X** has been requesting too many pages too quickly, it will start ignoring requests coming from that IP
+
+---
+Refereces:
+[NetCat Test Youtube Channel](https://www.youtube.com/watch?v=Priw-LhMJDU&ab_channel=NetCatTest)
+[Nico Knows Tech](https://www.youtube.com/watch?v=p2oYg1byGJ8&ab_channel=NicoKnowsTech)
+[David Wifi DOS video](https://github.com/davidbombal/red-python-scripts/blob/main/wifi_dos_type2.py)
