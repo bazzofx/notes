@@ -30,7 +30,7 @@ error.tsx||
 ## Page.tsx and Routing
 Next.JS uses a file base routing system, if we create a folder **inside the app folder,** folder will automatically become a route, **we simply need to create a page.tsx in the folder** 
 
-![[1.png]]
+![[1 1.png]]
 
 
 #### [Install and run snipped](https://marketplace.visualstudio.com/items?itemName=dsznajder.es7-react-js-snippets)
