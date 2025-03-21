@@ -5,11 +5,6 @@ Cybersecurity 101: Specializations & Job Roles — Part I
 
 [Reference](https://medium.com/bugbountywriteup/cybersecurity-101-specializations-job-roles-part-i-285f9bc1caca?source=your_stories_page-------------------------------------) by [MrXcrypt](https://medium.com/@misterxcrypt?source=post_page---byline--285f9bc1caca--------------------------------)
 
-A Little About Me:
-==================
-
-I am a final year engineering student and a Cyber Threat Intel Analyst Intern in a cybersecurity company. I have worked in this intern position for the past one and a half years (22 months). I wanted to share stuff that would have been useful to me when I first started cybersecurity. This series will be helpful to all beginners who want to start a career in cybersecurity and to people who want to know what cybersecurity is all about.
-
 Cybersecurity & its Specializations:
 ====================================
 
