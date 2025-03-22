@@ -19,8 +19,20 @@ This will invalidate all current logged-on sessions and revoking any authenticat
 - This is done in precaution, but one that is easy to act without causing a big impact.
 After user has change it's password we move to the **Investigative Scenario**
 
+# Retrieving the Phishing Email
+We will need to retrieve the original email, so we can perform our analysis. If you cannot download the email from the #AdmiPanels .
+We will ask the user to ==save the phishing email into a file and forward the file to us as an atachment==
+The best format to receive the attachment is **.eml** if saved from the outlook browser  or **.msg** if saved from the Outlook application which thankfully are the default formats.
+
+![[Pasted image 20250321220310.png]]
+[.EML files the attachments can be re-created from CyberChef, by extracting the base64 and downloading it]:
+
+# Investigating Phishing
+## ==IMPORTANT ==
+All Analysis is recommended to be done on a sandbox environment, although the chance of a zero day real phishing event on Outlook is low, its not impossible. The [CVE-2023-23397](https://cyberdefenseninja.blogspot.com/2023/03/CVE-2023-23397.html) is  triggered when an email is received, and a reminder is crafted using Powershell COM object and set to use a custom sound that will be retrieve from the attacker SMB server.
+
 ### Investigative Scenario
-Here we we will be performing analysis on the email, we will be using 3 main techniques
+We will be using 3 techniques for our investigation
 
 |Technique| Description|
 |-----------|-------------|
@@ -29,7 +41,187 @@ Here we we will be performing analysis on the email, we will be using 3 main tec
 |OSINT| Look at IP information |
 
 
+## Static Analysis
 
+### Tools
+[nslookup.io SPF Checker](https://www.nslookup.io/)
+[MXToolBox Header Analyer](https://mxtoolbox.com/EmailHeaders.aspx)
+[Msg Header Analyzer](https://mha.azurewebsites.net/)
+
+### Info
+This analysis will be mostly based on the below protocols used for email security.
+
+|Protocols | Descriptions|
+|-----------|--------------|
+|SPF|List of allowed Servers send email as the domain|
+|DKIM|Ensures email integrity by signing the email header Private/Public Key|
+|DMARC|Specifying how to handle failed authentication on SPF and DKIM|
+
+These protocols are saved as a **.TXT** record on the DNS of a domain, and are checked on the fly when an email is received.
+- You can check any website **.TXT** record and this is the same process an email provider is doing to check the validity and authentication of an email.
+##### Exercise
+Try the Window command below and look for **SPF** record.
+```
+nslookup -type=TXT domain.com;
+```
+![[Pasted image 20250322021330.png]]
+Below command will reveal the **DKIM** public key
+The query uses a selector, common values are:
+**`google`** or **`default`** or **`selector`**  or **`selector1`**
+```
+nslookup -type=TXT default._domainkey.domain.com
+```
+![[Pasted image 20250322021210.png]]
+
+Now see if you can find a **DMARC** from the domain using the below.
+```
+nslookup -type=TXT dmarc_.domain.com
+```
+![[Pasted image 20250322021347.png]]
+We will use the SPF, DKIM and DMARC knowledge to verify if the email came from the domain is claiming it came from, and we are not dealing with a #spoofed email.
+
+The most important part of an email is it's the HEADER
+This will contain a lot of information that we will use to verify the origin of the sender.
+On outlook to retrieve the header go to **File>Properties>Internet Headers**
+![[Pasted image 20250321233030.png]]
+
+We will use the [MXToolBox](https://mxtoolbox.com/EmailHeaders.aspx) to verify the Email Headers. Another good website we can use is [mha.AzureWebsites](https://mha.azurewebsites.net/).
+Our goal is to verify if the email came from an approved source by the domain it's claiming to be.
+
+![[Pasted image 20250322003725.png]]
+As we can see the Email Headers have came gave us the result our email has failed on both SPF authentication and DKIM, therefoe is not DMARC compliant. 
+
+Let's have a look and verify the IP Origin of the Email Server that first started sending the email.
+
+![[Pasted image 20250322003126.png]]
+Based on our header analysis, we can see that the IP is not listed in the SPF record for the domain it claims to be from. This raises a red flag and suggests the email may contain phishing links. While it could be a misconfiguration, that's unlikely
+![[Pasted image 20250322003145.png]]
+
+The image below also reveals that **the email was not signed using the DKIM Key** therefore  it did not pass the DKIM check either.
+![[Pasted image 20250322003509.png]]
+
+# Sender IP Verification
+Now that we have the Sender IP we can perform some techniques OSINT to find out some more information about the sender.
+
+### Info
+At this stage we are still confirming if the email is potential malicious, and if there has been any recorded activity in the past that have made this IP being flagged somehow.
+
+### Tools
+
+[AbuseIPDB](https://www.abuseipdb.com/)
+[VirusTotal]
+[BGPTools](https://bgp.tools/)
+
+On AbuseIPDB we can see that the sender IP from our email has been reported recently as SPAM 
+![[Pasted image 20250322004854.png]]
+
+### Who Is the Sender
+We will be using the tool #whois to gather some information about the IP.
+We can also use the [ICANN lookup website](https://lookup.icann.org/en/lookup)
+Its good to pay attention to ==Country== and the ==Registration date== 
+in some cases when verifying **domains** an very recent registration date is a sign for a potential phishing website.
+
+On this case looks like this IP is not very recent, but we can see it has an abuse email linked to **ctgserver.com**.  Its very common for attackers to host Email relays on web hosting companies servers.
+![[Pasted image 20250322005844.png]].
+
+This is also a very good website we can use to investigate IPs and ASN 
+![[Pasted image 20250322005622.png]]
+
+Below is the location where the email came from, its common practice to report the phishing email to the owner of the domain/IP so in this case we would report this IP, to **cs.mail@ctgserver.com**.
+
+
+#### Reporting the Abuser
+Simply send the .eml file to the email and add a short comment explaining the sender is using the company server to host phishing campaigns.
+
+![[Pasted image 20250322010327.png]]
+
+### X-Originating-IP
+If you are lucky, you might find other headers on your email that can give extra information about the sender.
+On our example we have a X-Originating-IP section, which the ctgservers hosting company added to further identify the sender. This IP is linked to another web server hosting company.
+![[Pasted image 20250322013105.png]]
+
+
+Its also possible to retrieve a somewhat possible location of where the email came from using a website called [IpAddres.my/ServerIP](https://www.ipaddress.my/).
+So for our example it will be **https://www.ipaddress.my/92.60.43.215**
+![[Pasted image 20250322013737.png]]
+
+Another good website that will help trace the email in a different fashion is
+[ip2location.com](https://www.ip2location.com/free/email-tracer). Simply upload the headers to visualize a trace of the email servers.
+![[Pasted image 20250322014201.png]]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## Phishing Investigation Summary
+
+##### Static Analysis
+- Verify Email Headers for SPF/DKIM/DMARC 
+- Verify Email contain attachments
+- Analyse contents of attachments
+
+##### OSINT Analysis
+- Verify Domain on WhoIS
+- Verify SenderIP on AbuseIPDB/VirusTotal
+
+##### Dynamic Analysis
+- On a sandbox, verify links
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# Investigating Email Attachments using CyberChef
+
+
+## Cyber Chefs Recipe for emails .eml
+#### Tools
+ - [CyberChef](https://gchq.github.io/)
+We can verify if the email contained attachments and even re-create them using CyberChef. The attachments will be near the end of the file.
+- To load the **email.eml** into CyberChef  just drag and drop file  into the **input field** or click **open file as input** [CyberChef](https://gchq.github.io/)
+
+After loading the **mail.eml** we can verify the links of the email
+![[Pasted image 20250321224920.png]]
+
+Managing to extracting the base64 from the **mail.eml** file we can download it, and save it with its original .extension mentioned on the filename field.
+![[Pasted image 20250321230026.png]]
+
+### Verify Attachment Names from .eml Recipe
+```
+Regular_expression('User defined','\n(?:Content-Description:.*)((?:[A-Za-z0-9+/=]+\\s*)+)\n',true,true,false,false,false,false,'List matches')
+```
+
+### Extract Attachments from .eml Recipe
+```
+Regular_expression('User defined','Content-Transfer-Encoding:\\s*base64\\s*\\n+([\\s\\S]+)',true,true,false,false,false,false,'List matches')
+```
 
 
 
