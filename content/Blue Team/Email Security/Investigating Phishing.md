@@ -27,19 +27,22 @@ The best format to receive the attachment is **.eml** if saved from the outlook 
 ![[Pasted image 20250321220310.png]]
 [.EML files the attachments can be re-created from CyberChef, by extracting the base64 and downloading it]:
 
+
+# Zero Day Phishing
+Although the chance of a zero day real phishing event on Outlook is low, its not impossible. The [CVE-2023-23397](https://cyberdefenseninja.blogspot.com/2023/03/CVE-2023-23397.html) is  triggered when an email is received, and a reminder is crafted using Powershell COM object and set to use a custom sound that will be retrieve from the attacker SMB server.
+
 # Investigating Phishing
-## ==IMPORTANT ==
-All Analysis is recommended to be done on a sandbox environment, although the chance of a zero day real phishing event on Outlook is low, its not impossible. The [CVE-2023-23397](https://cyberdefenseninja.blogspot.com/2023/03/CVE-2023-23397.html) is  triggered when an email is received, and a reminder is crafted using Powershell COM object and set to use a custom sound that will be retrieve from the attacker SMB server.
+==IMPORTANT ==
+All Dynamic Analysis should be done on a sandbox environment, we don't want to click on any potential phishing links ourselves.
 
 ### Investigative Scenario
 We will be using 3 techniques for our investigation
 
 |Technique| Description|
 |-----------|-------------|
-|Static analysis |Perform static revision of the links, email header|
-|Dynamic analysis |Verify the links on the email |
-|OSINT| Look at IP information |
-
+|Static analysis |Perform static revision of the email headers|
+|Dynamic analysis |Verify the links/attachments of the email **on a control environment** |
+|OSINT|Find public Information linked to the IP |
 
 ## Static Analysis
 
@@ -49,7 +52,10 @@ We will be using 3 techniques for our investigation
 [Msg Header Analyzer](https://mha.azurewebsites.net/)
 
 ### Info
-This analysis will be mostly based on the below protocols used for email security.
+Basically to email spoof is to separate and change the contents from the **Email Envolope** and **Email Content**
+![[Pasted image 20250322152904.png]]
+
+To protect against this type of attack there are 3 main email security protocols 
 
 |Protocols | Descriptions|
 |-----------|--------------|
@@ -75,10 +81,12 @@ nslookup -type=TXT default._domainkey.domain.com
 
 Now see if you can find a **DMARC** from the domain using the below.
 ```
-nslookup -type=TXT dmarc_.domain.com
+nslookup -type=TXT _dmarc.domain.com
 ```
 ![[Pasted image 20250322021347.png]]
-We will use the SPF, DKIM and DMARC knowledge to verify if the email came from the domain is claiming it came from, and we are not dealing with a #spoofed email.
+
+### Analysing Headers
+We will use the SPF, DKIM and DMARC knowledge to verify if the email came from the domain it is claiming to came from, and we are not dealing with a #spoofed email which would be our first ==red flag==.
 
 The most important part of an email is it's the HEADER
 This will contain a lot of information that we will use to verify the origin of the sender.
@@ -88,8 +96,11 @@ On outlook to retrieve the header go to **File>Properties>Internet Headers**
 We will use the [MXToolBox](https://mxtoolbox.com/EmailHeaders.aspx) to verify the Email Headers. Another good website we can use is [mha.AzureWebsites](https://mha.azurewebsites.net/).
 Our goal is to verify if the email came from an approved source by the domain it's claiming to be.
 
+### SPF/DKIM Authenticate Failed
+
 ![[Pasted image 20250322003725.png]]
-As we can see the Email Headers have came gave us the result our email has failed on both SPF authentication and DKIM, therefoe is not DMARC compliant. 
+The result shows us that the email failed on both SPF authentication, which means the server it sent from was not on the allowed list **SPF TXT** record on the domain. It was also **not signed by DKIM key**, therefore is not DMARC compliant. 
+
 
 Let's have a look and verify the IP Origin of the Email Server that first started sending the email.
 
@@ -99,6 +110,38 @@ Based on our header analysis, we can see that the IP is not listed in the SPF re
 
 The image below also reveals that **the email was not signed using the DKIM Key** therefore  it did not pass the DKIM check either.
 ![[Pasted image 20250322003509.png]]
+
+# SPF ISSUE
+There is a known issue with SPF which is linked to email relays, on the picture below we see the SPF record for boston.gov includes the **relay.mailchannels.net**.  This record is part of the normal set up process and will be overlooked by a lot of people.
+This record will allow any other client that is using the same relay address to spoof each other if they want to. 
+If you want to understand a bit more [watch this talk from DefCon](https://www.youtube.com/watch?v=NwnT15q_PS8&t=206s&ab_channel=DEFCONConference)
+
+[CloudFlare CloudWorkers](https://workers.cloudflare.com/) allows to send e-mails without authentication, so:
+- All  MailChannel customers can spoof each other!
+- MailChannel is acting as an open relay when used through CloudFlare
+workers! We're guaranteed to pass SPF when spoofing
+a domain that uses MailChannel!
+![[Pasted image 20250323131927.png]]
+
+
+
+
+## SRS Spoofing
+#### SPF/DMARC Alignment Failed
+Its good to note, when there is a mismatching records between the Return-Path and From field, we get a SPF Alignment mismatch. This suggests email spoofing or **a phishing attempt**.
+![[Pasted image 20250322104126.png]]
+![[Pasted image 20250322110901.png]]
+ The `SRS` (Sender Rewriting Scheme) in the Return-Path means this email **was forwarded** to `DynamiertcTechHub.onmicrosoft.com` to pretend it came from a different server.
+ #### Authentication-Results
+ On this field we notice although the SPF passed, the email header contains information it was sent from the google domain
+![[Pasted image 20250322142314.png]]
+
+##### Compromised Account or Open Relay?🚨 Possible Risk
+ - If `DynamiertcTechHub.onmicrosoft.com` has **a misconfigured mail server (open relay)**, an attacker could use it to send emails with forged `Return-Path` values.
+- This would make the email appear as if it came from them, even if it was originally sent from elsewhere.
+
+
+
 
 # Sender IP Verification
 Now that we have the Sender IP we can perform some techniques OSINT to find out some more information about the sender.
@@ -270,7 +313,7 @@ A website before you login gather telemetry of url, video card fingerPrint, then
 
 
 https://www.youtube.com/watch?v=aa7oFcr4Y-Y
-
-
+[Spoofed Email Video](https://www.youtube.com/watch?v=CYdihXNzm0g&t=56s&ab_channel=GrantCollins)
+[Spoofing Email Exercise](https://www.youtube.com/watch?v=j6NJnFcyIhQ&ab_channel=ChrisPowell)
 
 Demonstration Phishing Attack using Nginx

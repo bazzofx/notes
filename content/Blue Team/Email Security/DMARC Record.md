@@ -61,4 +61,4 @@ DMARC domain alignment is part of the [DMARC compliance](https://www.mimecast.c
 
 #### References:
 
-6. https://www.mimecast.com/content/what-is-dmarc/
+https://www.mimecast.com/content/what-is-dmarc/
