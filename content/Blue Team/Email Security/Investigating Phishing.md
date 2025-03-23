@@ -25,8 +25,7 @@ We will ask the user to ==save the phishing email into a file and forward the fi
 The best format to receive the attachment is **.eml** if saved from the outlook browser  or **.msg** if saved from the Outlook application which thankfully are the default formats.
 
 ![[Pasted image 20250321220310.png]]
-[.EML files the attachments can be re-created from CyberChef, by extracting the base64 and downloading it]:
-
+.EML files the attachments can be re-created from CyberChef, by extracting the base64 and downloading it
 
 # Zero Day Phishing
 Although the chance of a zero day real phishing event on Outlook is low, its not impossible. The [CVE-2023-23397](https://cyberdefenseninja.blogspot.com/2023/03/CVE-2023-23397.html) is  triggered when an email is received, and a reminder is crafted using Powershell COM object and set to use a custom sound that will be retrieve from the attacker SMB server.
