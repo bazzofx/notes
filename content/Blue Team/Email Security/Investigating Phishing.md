@@ -271,12 +271,16 @@ Regular_expression('User defined','Content-Transfer-Encoding:\\s*base64\\s*\\n+(
 # TOOLS
 ## SPF Check
 https://www.nslookup.io/spf-lookup/
+[Check Re-direct links](https://wheregoes.com)
 
 ## Decode URL
-CyberChef
-jws.io
+[CyberChef](https://gchq.github.io/CyberChef)
+[jws.io](https://jws.io)
 
-#Confirm SubUrl and SSL Cert
+## Decode JavaScript
+[Beautifier.io](https://beautifier.io/)
+[Jsnice.org](http://jsnice.org/#)
+## Subdomain Info
 https://crt.sh/
 
 

@@ -23,7 +23,7 @@ Azure tokens
 
 ## Tools: 
 - https://beautifier.io/
-- jsnice.org
+- [jsnice.org](http:/jsnice.org)
 - https://any.run/malware-trends/
 
 ## Process
