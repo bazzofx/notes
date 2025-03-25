@@ -16,8 +16,6 @@ These various sections within the DMARC record signify:
 4. rua=mailto:dmarc-aggregate@mydomain.com: The email address to which aggregate reports need to be sent. 
 5. ruf=mailto:dmarc-afrf@mydomain.com: The email address to which forensic reports need to be sent.
 6. pct=100: The default is 100% , this is the percentage of email that needs to be subjected to a DMARC policy’s specifications. If you see a value of pct=25, only 25% of the emails will be subject to the policy, the rest even if it fails will be ignored.
-![[Pasted image 20250204105142.png]]
-
 ## What does a DMARC record do?
 
 - **Protects users**: Prevents forged email messages, such as phishing attacks 

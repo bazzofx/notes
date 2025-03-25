@@ -46,7 +46,7 @@ We will be using 3 techniques for our investigation
 ## Static Analysis
 
 ### Tools
-[nslookup.io SPF Checker](https://www.nslookup.io/)
+[nslookup.io SPF Checker]([SPF Lookup](https://www.nslookup.io/spf-lookup/))
 [MXToolBox Header Analyer](https://mxtoolbox.com/EmailHeaders.aspx)
 [Msg Header Analyzer](https://mha.azurewebsites.net/)
 
@@ -65,19 +65,21 @@ To protect against this type of attack there are 3 main email security protocols
 These protocols are saved as a **.TXT** record on the DNS of a domain, and are checked on the fly when an email is received.
 - You can check any website **.TXT** record and this is the same process an email provider is doing to check the validity and authentication of an email.
 ##### Exercise
-Try the Window command below and look for **SPF** record.
+###### SPF
+Try the command below on Windows to look for **SPF** record.
 ```
 nslookup -type=TXT domain.com;
 ```
 ![[Pasted image 20250322021330.png]]
+###### DKIM
 Below command will reveal the **DKIM** public key
-The query uses a selector, common values are:
+The query uses a selector, depending on the mail server it will use an specific selector to look for the matching public key, common values are:
 **`google`** or **`default`** or **`selector`**  or **`selector1`**
 ```
 nslookup -type=TXT default._domainkey.domain.com
 ```
 ![[Pasted image 20250322021210.png]]
-
+###### DMARC
 Now see if you can find a **DMARC** from the domain using the below.
 ```
 nslookup -type=TXT _dmarc.domain.com
@@ -123,8 +125,6 @@ a domain that uses MailChannel!
 ![[Pasted image 20250323131927.png]]
 
 
-
-
 ## SRS Spoofing
 #### SPF/DMARC Alignment Failed
 Its good to note, when there is a mismatching records between the Return-Path and From field, we get a SPF Alignment mismatch. This suggests email spoofing or **a phishing attempt**.
@@ -139,11 +139,10 @@ Its good to note, when there is a mismatching records between the Return-Path an
  - If `DynamiertcTechHub.onmicrosoft.com` has **a misconfigured mail server (open relay)**, an attacker could use it to send emails with forged `Return-Path` values.
 - This would make the email appear as if it came from them, even if it was originally sent from elsewhere.
 
-
-
-
 # Sender IP Verification
-Now that we have the Sender IP we can perform some techniques OSINT to find out some more information about the sender.
+Now that we have the Sender IP we can perform some techniques OSINT to find out some more information about the sender. One of the tools you can use for some initial lookup is [WhoisFreaks](https://whoisfreaks.com)
+![[Pasted image 20250324215007.png]]
+
 
 ### Info
 At this stage we are still confirming if the email is potential malicious, and if there has been any recorded activity in the past that have made this IP being flagged somehow.
@@ -151,8 +150,9 @@ At this stage we are still confirming if the email is potential malicious, and i
 ### Tools
 
 [AbuseIPDB](https://www.abuseipdb.com/)
-[VirusTotal]
+[VirusTotal](https://virustotal.com)
 [BGPTools](https://bgp.tools/)
+[WhoisFreaks](https://whoisfreaks.com)
 
 On AbuseIPDB we can see that the sender IP from our email has been reported recently as SPAM 
 ![[Pasted image 20250322004854.png]]
@@ -194,9 +194,13 @@ Another good website that will help trace the email in a different fashion is
 
 
 
+## Dynamic Anlysis
+The below analysis should be performed very carefully as we will be exploring links that are potentially malicious, so all next steps should be done inside an isolated machine.
 
+## Links Re-direct checks
+We can perform a check on the links of an email to verify if they are followed by re-directs. A good website we can use is [WhereGoes](https://wheregoes.com) 
 
-
+![[Pasted image 20250324224027.png]]
 
 
 
