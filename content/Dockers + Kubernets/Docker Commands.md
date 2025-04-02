@@ -36,5 +36,5 @@ docker build -t hacker-terminal .
 # Deploying Docker
 Run Docker Container
 ```
-docker run -d --name $dockerImage -p 80:80 -p 443:443 -p 3000:3000 hacker-terminal tail -f /dev/null
+docker run -d --name $dockerImage -p 80:80 -p 443:443 -p 3000:3000 hacker-terminal
 ```

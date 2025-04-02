@@ -1,5 +1,4 @@
 
-
 # Methodology
 A Phishing is a method of attempt to steal credentials from the user, the attacker is "fishing" for information and hoping you would **click** his malicious link or download his files.
 When an email is flagged as phishing, we need to investigate if the email came from a legitimate source or if this was a legitimate phishing attempt.
@@ -128,6 +127,7 @@ a domain that uses MailChannel!
 ## SRS Spoofing
 #### SPF/DMARC Alignment Failed
 Its good to note, when there is a mismatching records between the Return-Path and From field, we get a SPF Alignment mismatch. This suggests email spoofing or **a phishing attempt**.
+
 ![[Pasted image 20250322104126.png]]
 ![[Pasted image 20250322110901.png]]
  The `SRS` (Sender Rewriting Scheme) in the Return-Path means this email **was forwarded** to `DynamiertcTechHub.onmicrosoft.com` to pretend it came from a different server.
@@ -166,7 +166,7 @@ in some cases when verifying **domains** an very recent registration date is a s
 On this case looks like this IP is not very recent, but we can see it has an abuse email linked to **ctgserver.com**.  Its very common for attackers to host Email relays on web hosting companies servers.
 ![[Pasted image 20250322005844.png]].
 
-This is also a very good website we can use to investigate IPs and ASN 
+This is also a very good website we can use to investigate IPs and ASN to verify who owns the IP.
 ![[Pasted image 20250322005622.png]]
 
 Below is the location where the email came from, its common practice to report the phishing email to the owner of the domain/IP so in this case we would report this IP, to **cs.mail@ctgserver.com**.
@@ -181,7 +181,6 @@ Simply send the .eml file to the email and add a short comment explaining the se
 If you are lucky, you might find other headers on your email that can give extra information about the sender.
 On our example we have a X-Originating-IP section, which the ctgservers hosting company added to further identify the sender. This IP is linked to another web server hosting company.
 ![[Pasted image 20250322013105.png]]
-
 
 Its also possible to retrieve a somewhat possible location of where the email came from using a website called [IpAddres.my/ServerIP](https://www.ipaddress.my/).
 So for our example it will be **https://www.ipaddress.my/92.60.43.215**
