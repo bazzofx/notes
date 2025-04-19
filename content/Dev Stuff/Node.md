@@ -68,3 +68,23 @@ So if I have an app running on port :3000 and I add the **-H 0.0.0.0** I will be
 ```
 public_IP:3000
 ```
+
+## Troubleshooting Dev
+When running npm run dev
+### Error
+```
+ ⨯ Failed to start server
+Error: listen EACCES: permission denied 0.0.0.0:3000
+    at <unknown> (Error: listen EACCES: permission denied 0.0.0.0:3000)
+  code: 'EACCES',
+  errno: -4092,
+  syscall: 'listen',
+  address: '0.0.0.0',
+  port: 3000
+```
+
+### Fix
+```
+net stop winnat
+net start winnat
+```

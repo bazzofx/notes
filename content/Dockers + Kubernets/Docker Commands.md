@@ -5,7 +5,10 @@
 docker ps
 ```
 
--a to list all containers **docker ps -a**
+## List Installed Containers
+```
+docker ps -a
+```
 ## Docker logs
 ```
 docker logs $dockerName
@@ -37,4 +40,8 @@ docker build -t hacker-terminal .
 Run Docker Container
 ```
 docker run -d --name $dockerImage -p 80:80 -p 443:443 -p 3000:3000 hacker-terminal
+```
+#### If we need to also use NGINX on the server we should avoid exposing the ports 80 and 443 directly on the docker so the actual creation will look like the below, while running NGINX locally
+```
+docker run -d --name $dockerImage -p 3000:3000 hacker-terminal
 ```

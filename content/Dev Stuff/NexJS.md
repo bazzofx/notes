@@ -5,6 +5,7 @@ npx create-next-app@latest
 
 #### Deploy Local Server
 ```
+npm install
 npm run dev
 ```
 #### Troubleshooting Install
@@ -42,6 +43,11 @@ const Home = () => {   return (
 ) }
 export default Home
 ```
+
+
+## Troublehooting
+[[Hydration Error]]
+
 
 #### Reference
 [Next.JS pt1](https://www.youtube.com/watch?v=QIDkK0FbXDc&t=18s&ab_channel=HuXnWebDev)
