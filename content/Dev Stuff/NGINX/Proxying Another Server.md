@@ -126,7 +126,7 @@ Notice now we can see the path of the files giving error.
 
 ### Solution
 ![[Pasted image 20250419083519.png]]
-
+<hr>
 If receive 404 errors not found when accessing the files 
 We will need to add the below to our settings to allow rewrite of the path, or we need to modify our application to server the files from an specific directory instead like **/game/_next , /game_static**   instead of just **/_next , /static**
 
