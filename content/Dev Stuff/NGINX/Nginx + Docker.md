@@ -14,8 +14,6 @@ Because our nginx **/conf.d/hackerterminal.conf**  has been configure to have th
 upstream hacker_terminal_3000{
         server localhost:3000;
 }
-
-
 server{
         listen 80;
         server_name xheaders.com www.xheaders.com;

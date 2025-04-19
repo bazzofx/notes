@@ -24,7 +24,7 @@ docker run -d --name cybersiege -p 127.0.0.1:3002:3002 cybersiege
 ```
 
 ## Server A config
-We need to have the proxy_pass on server A  as usual to re-direct traffic from port 3000 to port 80.
+We need to have the **proxy_pass** on server A  as usual to re-direct traffic from port 3000 to port 80.
 ```
 upstream cyber_siege_3002 {
     server localhost:3002;
@@ -50,7 +50,7 @@ server {
 
 
 ## Server B config
-We will need to create some modification to our nginx.conf file with the **proxy_pass**
+We will also need to create a **proxy_pass** settings on Server B 
 
 ```
 upstream cyber_siege_solo_3002{
@@ -72,7 +72,9 @@ server{
         }
     }
 ```
-For this configuration we don't need the rewrite but Im keeping commented out, for reference purposes only.
+This modification will update the path so when we go to https://cybersamurai.co.uk/cybersiege the request is re-directed to the other server.
+
+For this configuration we don't need the **rewrite** option but Im keeping commented out, for reference purposes only.
 
 ## The Rewrite vs Proxy_pass
 - `proxy_pass` determines the destination (use the IP + port here).
@@ -124,6 +126,7 @@ Notice now we can see the path of the files giving error.
 
 ### Solution
 ![[Pasted image 20250419083519.png]]
+
 If receive 404 errors not found when accessing the files 
 We will need to add the below to our settings to allow rewrite of the path, or we need to modify our application to server the files from an specific directory instead like **/game/_next , /game_static**   instead of just **/_next , /static**
 
