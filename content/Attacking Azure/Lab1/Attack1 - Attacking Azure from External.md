@@ -5,10 +5,13 @@ Atacking Azure Accounts From External
 Identify user to attack “ie : John Doe”
 Generate random name to test email using github repo ---> [GitHub - hac01/uwg:](https://github.com/hac01/uwg/) This tool can help you generate email or user wordlist from a single argument or a file containing multiple names
 
+# Step 1
+Use the uwg to generate a wordlist for a single name and save it to a file
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
  python3 main.py -n "Ingrid Johansen" -d megabigtech.com
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+# Step 2
 ## o365enum.py
 Verify email exist by confirming result of header usiong 0365enum
 
@@ -16,6 +19,7 @@ Verify email exist by confirming result of header usiong 0365enum
 python3 o365enum.py -u wordlist.txt -n 1 -m office.com
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+# Step 3
 ## oh365userfinder.py
 Use the word list generated to spray attack the account
 
