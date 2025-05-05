@@ -133,7 +133,7 @@ We will need to add the below to our settings to allow rewrite of the path, or w
 Because I don't have any conflict on this servers to rewrite these paths, it was okay for me to use the rules on the default.conf as below
 ```
 location ^~ /_next/ {
-    proxy_pass http://hacker_terminal_3000/_next/;
+    proxy_pass http://cyber_siege_solo_3002/_next/;
     proxy_http_version 1.1;
     proxy_set_header Host $host;
     proxy_set_header X-Real-IP $remote_addr;

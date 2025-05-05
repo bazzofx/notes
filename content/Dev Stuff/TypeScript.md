@@ -1,6 +1,9 @@
 Pretty much like JavaScript but we some bonus features
 It allow us to run Javascript outside the browser.
-
+## Check version 
+```
+tsc -v
+```
 ## Installing Windows
 It runs on node JS so we need to install node
 ## RUN
