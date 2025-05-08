@@ -5,7 +5,7 @@ When hosting subdomains from the same server. If you are encountering issues, ch
 Example config for **cyber-siege.conf**
 [cybersiege.cybersamurai.co.uk](https://cybersiege.cybersamurai.co.uk)
 
-![[Pasted image 20250427222315.png]]
+![[Pasted image 20250427222315 1.png]]
 
 ```
 upstream cyber_siege_3002 {
