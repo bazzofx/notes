@@ -10,8 +10,7 @@ Infostealer can bypass MFA(Multi Factor Authentication) because it steal cookies
 
 ## Famous InfoStelaer
 RedLiner
-InfoStealer
-
+InfoStealer (read [[Web Browser Store Credentials]])
 ## Information Captured
 Location info
 Harware ID

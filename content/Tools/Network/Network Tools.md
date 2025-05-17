@@ -36,8 +36,6 @@ tui-geoip-mode = "short"
 
 > Pressing 's' would show up the settings however I don't know how to change them
 
-To confirm that the settings dialog is read-only for the moment, something we aim to improve in the future.
-
 ## SysDig
 SysDig (Monitorign like a pro)
 
