@@ -6,6 +6,5 @@
 
 ## PathFinder
 
-
 # custom
  vinyl wrapped and chrome deleted. The wrap is 3M satin black gold dust

