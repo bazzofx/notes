@@ -1,7 +1,7 @@
 # Web Browser Store Credentials
-Microsoft introduced Data Protection Application Programming Interface (DPAPI) in Windows environments as a method to encrypt and decrypt sensitive data such as credentials using the _CryptProtectData_ and _CryptUnprotectData_ functions. Browsers such as Chrome and Edge utilize DPAPI to encrypt credentials prior to storage. The master key is stored locally and can be decrypted with the password of the user, which then is used to decrypt DPAPI data blobs.
+Microsoft introduced Data Protection Application Programming Interface (DPAPI) in Windows environments as a method to encrypt and decrypt sensitive data such as credentials using the **CryptProtectData** and **CryptUnprotectData** functions. Browsers such as Chrome and Edge utilize DPAPI to encrypt credentials prior to storage. The master key is stored locally and can be decrypted with the password of the user, which then is used to decrypt DPAPI data blobs.
 
-In the world of red team operations, locations which credentials are stored are always a target as it will allow access to other applications or lateral movement. Organizations which are utilizing Microsoft Edge or Google Chrome for storage the credentials of their users are vulnerable due to the abuse of CryptUnprotectData API ([T1555.003](https://attack.mitre.org/techniques/T1555/003/)). It should be noted that reading credentials stored in browsers doesn’t require any form of elevation and it is challenging for defensive teams to detect due to the high volume of events which are generated in case of monitoring.
+In the world of red team operations, locations which credentials are stored are always a target as it will allow access to other applications or lateral movement. Organizations which are utilizing Microsoft Edge or Google Chrome for storage the credentials of their users are vulnerable due to the abuse of **CryptUnprotectData** API ([T1555.003](https://attack.mitre.org/techniques/T1555/003/)). It should be noted that reading credentials stored in browsers doesn’t require any form of elevation and it is challenging for defensive teams to detect due to the high volume of events which are generated in case of monitoring.
 
 Master keys are located in the following path and by default are not visible as these are classified as protected operating system files.
 ## Extracting Master Keys from Browser
@@ -56,7 +56,7 @@ Firefox does **not use the Chromium `Local State` file** or `os_crypt`. Instead,
 - `key4.db` — for master password and credentials
 - `logins.json` — stores encrypted usernames/passwords
 ## Detection
-Any attempt to interact /download them two files key4.db and logins.json should be considered malicious
+Any attempt to interact /download them two files key4.db and logins.json should be considered malicious.
 # SharpChrome
 [SharpChrome](https://github.com/GhostPack/SharpDPAPI/) is part of the SharpDPAPI and targets sensitive information stored in Chromium based browsers such as Chrome, Edge and Brave. The tool will attempt to read and decrypt the AES key from the “_Local State_” file using the cryptographic function BCrypt. The API _CryptUnprotectData()_ is used to decrypt passwords stored in browsers.
 

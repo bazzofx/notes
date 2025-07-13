@@ -37,8 +37,13 @@ tui-geoip-mode = "short"
 > Pressing 's' would show up the settings however I don't know how to change them
 
 ## SysDig
-SysDig (Monitorign like a pro)
+SysDig (Monitoring like a pro)
 
 [Github link](draios/sysdig: Linux system exploration and troubleshooting tool with first class support for containers](https://github.com/draios/sysdig/?tab=readme-ov-file)
 
 [Sysdig Open Getting Started Video](https://www.youtube.com/watch?v=UJ4wVrbP-Q8&ab_channel=Sysdig)
+
+
+# Sniffnet
+![[Pasted image 20250529234039.png]]
+[Sniffnet download](https://sniffnet.net/)

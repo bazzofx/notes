@@ -56,7 +56,6 @@ unlink /etc/nginx/sites-enabled/default
 *unlink the default configuration* /etc/nginx/sites-available 
 Update the conf.d file
 
-
 # nginx.conf
 
 To avoid making unwanted changes use the view command

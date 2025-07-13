@@ -15,9 +15,7 @@ The DOS/DDoS attacks can be done on each layer of the ISO model, depending on th
 ### **Application Layer (Layer 7):**
     
 -  **#HTTPFlood:** Overwhelms a web server by sending a massive number of HTTP requests, often targeting specific URLs.
-        
 - **Slowloris:** Keeps multiple connections open to a server by sending partial HTTP requests, never completing them, which exhausts the server’s available threads.
-        
 - **DNS Amplification:** Exploits DNS servers by sending small queries that result in large responses, flooding the target.
         
 ###  **Presentation Layer (Layer 6):**
@@ -27,33 +25,27 @@ The DOS/DDoS attacks can be done on each layer of the ISO model, depending on th
 ### **Session Layer (Layer 5):**
     
 - **Session Hijacking:** The attacker takes control of a user's session, potentially causing service disruptions.
-        
 - **SYN Floods:** Can also be seen as partially impacting this layer by overwhelming session establishment processes.
         
 ### **Transport Layer (Layer 4):**
     
 - **SYN Flood:** Exploits the TCP handshake by sending a flood of SYN requests without responding to SYN-ACKs, leaving connections half-open.
-        
 - **UDP Flood:** Sends a flood of UDP packets to random ports, causing the target to repeatedly check for non-existent applications, exhausting resources.
         
 ### **Network Layer (Layer 3):**
     
 - **ICMP Flood (Ping Flood):** Overwhelms the target with ICMP Echo requests (pings).
-        
 - **Smurf Attack:** Uses ICMP requests with a spoofed source address, causing multiple replies to be sent to the target.
-        
 - **IP Fragmentation Attack:** Sends fragmented packets that the target must reassemble, consuming CPU and memory resources.
         
 ### **Data Link Layer (Layer 2):**
     
 - **MAC Flooding:** Overloads a switch's MAC table, forcing it into a fail-open mode, converting it into a hub and allowing traffic to be sniffed.
-        
 - **STP (Spanning Tree Protocol) Attack:** Disrupts network topology by injecting fake STP configurations, causing network instability. Usually caused by ==mis-configured Switch Devices== 
         
 ### **Physical Layer (Layer 1):**
     
 - **Cable Cutting:** Physically cutting or damaging network cables to disrupt communication.
-        
 - **Jamming (Wireless Networks):** Interfering with radio frequencies to block wireless signals.
 
 ---
