@@ -1,0 +1,24 @@
+Source: [Modern Threat Hunting Series -2024](https://www.linkedin.com/learning/modern-threat-hunting-strategies-to-identify-attacks/reviewing-places-with-persistence?autoSkip=true&resume=false&u=84863210)
+Trainer:[Paula Januszkiewicz](https://www.linkedin.com/learning/instructors/paula-januszkiewicz?u=84863210)
+
+# Glossary
+- SPN - Service Principal Name - Used to associate a service instance with a Service log-on account
+- APT - Advance Persistent Threats
+# Detecting Unnecessary Services
+## Misconfigured Service Accounts
+### Risk 
+- Password stored in registry - It's essential to ensure managed service accounts are used
+- Account not denied all log-on types except for service log-on type - Logon should only be as a service
+- Account can log on to servers other than when configured
+- Password never expires, stale accounts can lead to compromise
+- Incorrect permissions to the service defining who can start/stop it
+- Incorrect permissions to the folder where the service executable is located
+- Unquoted service path - This can be exploit using [Service Path Hijacking]() where path to the executable contains spaces, and the attacker can manipulate this path
+- Usage of SPN with weak password - This leads to #Kerberosting and SMB relay attacks
+## Best Practices for SSP
+- **Conduct Regular Audits** 
+- **Use Group Managed Service Accounts**
+- **Apply the Principle of Least Privilege**
+- **Monitor and Log Activity**
+
+# Persistence

