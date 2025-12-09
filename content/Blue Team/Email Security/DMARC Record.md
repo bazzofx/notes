@@ -51,7 +51,6 @@ These various sections within the DMARC record signify:
     
     Allows the domain owner to monitor email authentication status and sends failed emails to spam
     
-
 - **p=reject**
     
     Allows the domain owner to monitor email authentication status and rejects failed emails

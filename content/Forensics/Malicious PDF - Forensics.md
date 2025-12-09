@@ -5,7 +5,7 @@ To understand how a .pdf files are composed red [lasb.segura unasmking pdf blog]
 # Unmasking PDF Tools
 ## pdfid
 This 
-```
+```bash
 pdfid $pdf
 ```
 

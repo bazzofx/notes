@@ -1,4 +1,3 @@
-
 ### 🔍 Key Differences
 
 | Feature                  | NTLMv1                  | NTLMv2                            |
@@ -9,7 +8,6 @@
 | Session Security         | ❌ Limited               | ✅ Extended session security       |
 | Hash Cracking Difficulty | Easy (fast brute force) | Harder (more complex blob)        |
 | Recommended Today?       | ❌ Never                 | ⚠️ Only if Kerberos not available |
-
 
 # NTLM v1 Flow #ntlm
 ![[ntlmv1.png]]

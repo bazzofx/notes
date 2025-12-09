@@ -14,7 +14,7 @@ Right click then 'spider this branch'
 -When spidering we can change login options to be SQL Injection for the id
 admin' or 1=1 --
 
-
+# Other Tools
 ### ZAP
 #OWASP ZAP - 
 Zed Attack Proxy -alternative to Burp

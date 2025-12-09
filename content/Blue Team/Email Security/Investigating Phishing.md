@@ -4,7 +4,7 @@ A Phishing is a method of attempt to steal credentials from the user, the attack
 When an email is flagged as phishing, we need to investigate if the email came from a legitimate source or if this was a legitimate phishing attempt.
 
 ## Impact Scope
-The first step is to understand what the user have done. We need to understand if the has potentially already been compromised, or not.
+The first step is to understand what the user have done. We need to understand if the user has potentially already been compromised, or not.
 - Has the user clicked on a phishing link?
 - Entered real password into a potential malicious website?
 - Or just suspect of a malicious email received, and not taken any action yet
@@ -203,14 +203,6 @@ We can perform a check on the links of an email to verify if they are followed b
 
 
 
-
-
-
-
-
-
-
-
 ## Phishing Investigation Summary
 
 ##### Static Analysis
@@ -297,29 +289,6 @@ Steal cookies, token, passwords, etc..
 - Browser in Browser attack
 A pop up will be created size of the browser, the attacker can then manipulate the url of that pop up to look like the original url
 
-### Protection Websites Owners
 
-- JavaScript Protection
-
-#### Redirect Users to Safety if on a Fake Domain
-```
-if (document.location.hostname !== "yourwebsite.com") {
-    window.location.href = "https://yourwebsite.com/security-warning";
-}
-```
-#### Warn Users Who Were Redirected from a Suspicious Site
-```
-if (document.referrer && !document.referrer.includes("yourwebsite.com")) {
-    alert("Warning: You were redirected here from an unknown website. If you entered your credentials on another site, change your password immediately!");
-}
-```
-
-- Shadow token - 
-A website before you login gather telemetry of url, video card fingerPrint, then ecnrypt into blob of data and send as extra info when loging ing. The backend server decrypt the data and verify if the request came from a website that could be potential malicious and if so, it will block the account. (LinkedIn currently does it)
-
-
-https://www.youtube.com/watch?v=aa7oFcr4Y-Y
-[Spoofed Email Video](https://www.youtube.com/watch?v=CYdihXNzm0g&t=56s&ab_channel=GrantCollins)
-[Spoofing Email Exercise](https://www.youtube.com/watch?v=j6NJnFcyIhQ&ab_channel=ChrisPowell)
 
 Demonstration Phishing Attack using Nginx

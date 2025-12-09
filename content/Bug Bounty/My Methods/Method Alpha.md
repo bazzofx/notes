@@ -7,7 +7,7 @@ subfinder -d domain.com -all -recursive > subs_domain.com.txt
 ## 2. httpx
 
 ```
-cat subs_domain.com.txt | httpx -td -title -sc -ip -fc 403,404 > httpx_domain.com.txt
+cat subs_domain.com.txt | httpx -td -title -sc -ip -fc 403,404 |tee httpx_domain.com.txt
 ```
 ```
 cat httpx_domain.com.txt | awk '{print $1}' > live_subs_domain.com.txt
