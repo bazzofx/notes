@@ -1,6 +1,6 @@
  Create an image  using Google Banana Image  Model
 - [Nano Banana](https://gemini.google.com/)
-
+- [N8N](https://app.n8n.io)
 ## This prompt will generate a person/character which we can use as a Social Media Influencer
 ```prompt
 subject: Young female wityh light tan skin tone, dark short hair style loosly to one side
@@ -40,6 +40,7 @@ reference: use the provided characer reference image for face, clothing and body
 ```
 ## This is the main prompt used on N8N to give the correct output and the format we need
 [N8N](https://app.n8n.io)
+
 AI Prompt
 ```prompt
 Give an image and video prompt for the posts below.
@@ -72,6 +73,7 @@ Target Audience:
 Primarily Gen Z and young millennials interested in fashion, digital art, social justice and the evolution of online identity. Her audience values authenticity, transpaency and creativity. Followers who love style inspirational, futuristic asthethics, and influencer authenticity with empowering, boldness and self expression.
 ```
 This is the System Message to how the AI should interprete our requests
+
 ```prompt
 ## SYSTEM PROMPT: Unified Prompt Generator for AI Influencer Multimedia Posts 
 

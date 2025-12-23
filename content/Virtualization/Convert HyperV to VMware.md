@@ -17,12 +17,29 @@ The error you’re hitting is related to **VirtualBox not fully supporting certa
 Option 1: Convert VHDX → VHD → VDI
 
 - VHDX --> VHD
-```
+```powershell
 Convert-VHD -Path "C:\VMs\kali-linux-2024.3-hyperv-amd64\kali-linux-2024.3-hyperv-amd64.vhdx" -DestinationPath "C:\VMs\KaliJoker.vhd" -VHDType Dynamic
   ```
 
 - VHD --> VDI
-```
+```bash
 cd "C:\Program Files\Oracle\VirtualBox"
 .\VBoxManage.exe clonemedium disk "C:\VMs\KaliJoker.vhd" "C:\VMs\KaliJoker.vdi" --format VDI
+```
+
+## Testing .VHDX to VirtualBox
+
+```powershell
+# DID NOT WORK
+Convert-VHD -Path "C:\VMs\kali-linux-2024.3-hyperv-amd64\kali-linux-2024.3-hyperv-amd64.vhdx" -DestinationPath "C:\VMs\KaliJoker.vhd" -VHDType Dynamic
+```
+```bash
+WORKED
+cd "C:\Program Files\Oracle\VirtualBox"
+VBoxManage modifyhd "C:\path\to\disk.vdi" --resize 200000
+```
+```bash
+
+C:\apps\qemu\qemu-img.exe convert -O vdi "C:\VMs\kali-linux-2024.3-hyperv-amd64\kali-linux-2024.3-hyperv-amd64.vhdx" "C:\VMs\VirtualBox\kali7\kali7.vdi"
+
 ```

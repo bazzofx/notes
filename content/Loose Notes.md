@@ -17,6 +17,7 @@
 - HMO Article 4
 - Look to buy on an option agreement 
 	- I know you selling to 50K, but let me give you 60K but I will give you in 12 payments subject to `planning agreement` 
+
 ## Ways to not Pay tax
 - Options agreement
 - You can buy something on a pension pot so we do not pay taxes

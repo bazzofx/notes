@@ -31,10 +31,13 @@ org:verily "verily.com"
 
 
 # Method 2 
+
 ## Tools
-```
-https://github.com/gitleaks/gitleaks
-```
+
+| Step | Action                   | Tool                                                 | Achieved                          |
+| ---- | ------------------------ | ---------------------------------------------------- | --------------------------------- |
+| 1    | Search secrets within git commit | [gitleaks](https://github.com/gitleaks/gitleaks) | Found secret api within commit history |
+
 
 ## Gitleaks
 Clone the repo we would like to inspect its commit history, then run the below

@@ -1,17 +1,45 @@
+# Summary File Upload Flaws 
+| Flaws                                   | Attack                                                                                                                           |    |
+| --------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------- | 
+| Unrestricted File Extension Upload      | upload of exe.php or any other type that can execute code, ie:.exe, .js, .jsp, .py                                               |     
+| Flawed Type Validation                  | Pretend to be different Content-Type, request can pretend to be from a different MIME type                                       |     
+| Folder Restriction Upload               | Upload the file to a different folder using **../** pay attention if the value is been decoded by the server also, ie: **..%2f** |     
+| Insufficient blacklisting of file types | Blacklist a few extensions but not others, ie: **.php5 or .shtml5**                                                              |     
+| Upload our own config file              | Uploading our own .htaccess(Apache) or web.config(IIS), so we can enable our custom file extension                               |     
+| Obfuscating file extensions             | Exploit.php.jpg, exploit%2Ephp, exploit.asp%00.jpg [more here](![[Dangerous File Extensions]])                                                                               |  
+   
+![[Pasted image 20251223174936.png]]
 
-- Try uploading another  file format ie:.exe,.php
-- Check if we can upload and path transversal at the same time with "../"
-- Common path transversal technique also '...///' Some server may restrict execution on the folder its uploaded, but if we can control the location using path transversal we can get RCE.
-- We can embed a malicious payload inside an image, and sometimes the server will execute  it. View the image to verify.
-- Websites often validate file uploads by checking whether the Content-Type header matches the expected MIME type.
-- If apache server try upload a file called ==.htaccess== this allows will load a directory-specific configuration from a file called `.htaccess` if one is present.
-	- ```config
+### Open Permissions Folder Linux
+- /tmp/
+- /dev/shm/
+- /var/tmp
+
+
+### Defences Best Practices
+Preventing file execution in user-accessible directories
+In some cases, serve the contents of the file as plain text instead
+
+## Special Server Configs Apache and IIS Servers
+### Apache
+ If Apache server try upload a file called ==.htaccess== this allows will load a directory-specific configuration from a file called `.htaccess` if one is present.
+	- ```text
 	  AddType application/x-httpd-php .php
 	  ```
-- If ISS Servers try upload a file called ==web.config== this will load a directory-specific configuration from a file called `.htaccess` if one is present.
+  ### IIS Server
+If ISS Servers try upload a file called ==web.config== file. This might include directives such as the following, which in this case allows JSON files to be served to users
 	- ```xml
 	  <staticContent> <mimeMap fileExtension=".json" mimeType="application/json" /> </staticContent>
 	  ```
+
+## Attacks to try
+- Try uploading another  file format ie:.**exe.php**
+- Check if we can upload and path transversal at the same time with **"../"**
+- Common path transversal technique also **'...///'** Some server may restrict execution on the folder its uploaded, but if we can control the location using path transversal we can get RCE.
+- We can embed a malicious payload inside an image, and sometimes the server will execute  it. View the image to verify.
+- Websites often validate file uploads by checking whether the Content-Type header matches the expected MIME type.
+
+
 - If a PHP application return a SQL error, we have SQL injection,  if return an SH error we have sh command injection
 ### Common php test commands
 ```php
@@ -20,6 +48,8 @@
 <?php echo file_get_contents('/path/to/target/file'); ?>
 
 ```
+
+
 ## Obfuscating file extensions
 
 Even the most exhaustive blacklists can potentially be bypassed using classic obfuscation techniques. Let's say the validation code is case sensitive and fails to recognize that `exploit.pHp` is in fact a `.php` file. If the code that subsequently maps the file extension to a MIME type is **not** case sensitive, this discrepancy allows you to sneak malicious PHP files past validation that may eventually be executed by the server.

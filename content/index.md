@@ -12,6 +12,54 @@ title: Cyber Notes
 Welcome to my notes
 </p>
 
+> [Security Certification Roadmap](https://pauljerimy.com/security-certification-roadmap/)
+
+|   |   |   |   |
+|---|---|---|---|
+|✍️ Ongoing|🎯 To-do|✅ Done|🆓 Free|
+
+## Future Goals 🎯
+
+- [Senior Web Penetration Tester (HTB)](https://academy.hackthebox.com/path/preview/senior-web-penetration-tester)
+- [UnderTheWire (PowerShell)](https://underthewire.tech/wargames) 🆓
+- [Attacking and Defending AWS (THM)](https://tryhackme.com/path/outline/attackinganddefendingaws)
+
+## 2026 Goals 🎯
+
+- [PostSwigger Academy](https://portswigger.net/web-security/all-topics) ✍️
+- [OverTheWire (Bash)](https://overthewire.org/wargames/) 🆓
+    - [Bandit](https://overthewire.org/wargames/bandit/) ✅
+    - [Natas](https://overthewire.org/wargames/natas/) 🎯
+- [picoCTF](https://picoctf.org/index.html#picogym) 🆓
+    - [Web exploitation](https://play.picoctf.org/practice?category=1&page=1) ✍️
+- [PostSwigger Academy](https://portswigger.net/web-security/all-topics) ✍️
+    - [Server-side topics](https://portswigger.net/web-security/all-topics) ✍️
+- [APISEC University](https://www.apisecuniversity.com/#courses) 🆓
+    - [API Security Fundamentals](https://www.apisecuniversity.com/courses/api-security-fundamentals) 🎯
+    - [API Penetration Testing Course](https://www.apisecuniversity.com/courses/api-penetration-testing) 🎯
+    - [API Authentication](https://www.apisecuniversity.com/courses/api-authentication) 🎯
+- [Hack The Box Academy](https://academy.hackthebox.com/)✍️
+    - [Penetration Tester Job Role Path (CPTS)](https://academy.hackthebox.com/path/preview/penetration-tester) ✅
+    - [Bug Bounty Hunter Job Role Path (CBBH)](https://academy.hackthebox.com/path/preview/bug-bounty-hunter) ✍️
+    - [CREST CPSA/CRT Preparation](https://academy.hackthebox.com/path/preview/crest-cpsacrt-preparation) 🎯
+- [Postman API Fundamentals Student Expert certification](https://academy.postman.com/postman-api-fundamentals-student-expert-certification-1) 🆓✅
 
 
 
+## Recommended Platforms 👍
+
+- [APISEC University](https://www.apisecuniversity.com/#courses) 🆓
+- [PostSwigger Academy](https://portswigger.net/web-security/all-topics) 🆓
+- [UnderTheWire (PowerShell)](https://underthewire.tech/wargames) 🆓
+- [OverTheWire (Bash)](https://overthewire.org/wargames/) 🆓
+- [picoCTF](https://picoctf.org/index.html#picogym) 🆓
+- [Hack The Box](https://www.hackthebox.com/)
+- [Try Hack Me](https://tryhackme.com/)
+- [CISCO](https://skillsforall.com/catalog?subject=Cybersecurity) 🆓
+
+
+## Interesting
+[Swiss Bug Bounty Methodology](https://swisskyrepo.github.io/)
+[BookHackTricks Wiki](https://book.hacktricks.wiki/en/generic-methodologies-and-resources/external-recon-methodology/index.html)
+[Hackerai.co](https://hackerai.co/)
+[Hacker101](https://www.hacker101.com/videos) 
