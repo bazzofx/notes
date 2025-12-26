@@ -1,3 +1,4 @@
+[[How to File Upload]]
 ### 🎯 Core List of Potentially Dangerous File Extensions
 
 The table below lists file extensions that have the potential to be executed as code on a server if uploaded. Your goal is to see if the application can block or correctly handle these.

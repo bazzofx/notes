@@ -12,21 +12,25 @@ title: Cyber Notes
 Welcome to my notes
 </p>
 
+# Links
+> [OWAS Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/File_Upload_Cheat_Sheet.html)
 > [Security Certification Roadmap](https://pauljerimy.com/security-certification-roadmap/)
+> [12 CyberSecurity Professions as per Europe ECSF](https://enisaeu.github.io/ECSF/#/profiles)
 
-|   |   |   |   |
-|---|---|---|---|
-|✍️ Ongoing|🎯 To-do|✅ Done|🆓 Free|
+|            |          |        |         |
+| ---------- | -------- | ------ | ------- |
+| ✍️ Ongoing | 🎯 To-do | ✅ Done | 🆓 Free |
 
 ## Future Goals 🎯
 
 - [Senior Web Penetration Tester (HTB)](https://academy.hackthebox.com/path/preview/senior-web-penetration-tester)
-- [UnderTheWire (PowerShell)](https://underthewire.tech/wargames) 🆓
+- [UnderTheWire (PowerShell)](https://underthewire.tech/wargames) ✍️
 - [Attacking and Defending AWS (THM)](https://tryhackme.com/path/outline/attackinganddefendingaws)
 
 ## 2026 Goals 🎯
 
 - [PostSwigger Academy](https://portswigger.net/web-security/all-topics) ✍️
+- [Public Fire Range](https://public-firing-range.appspot.com/)✍️
 - [OverTheWire (Bash)](https://overthewire.org/wargames/) 🆓
     - [Bandit](https://overthewire.org/wargames/bandit/) ✅
     - [Natas](https://overthewire.org/wargames/natas/) 🎯
