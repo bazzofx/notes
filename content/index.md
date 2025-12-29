@@ -16,6 +16,11 @@ Welcome to my notes
 > [OWAS Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/File_Upload_Cheat_Sheet.html)
 > [Security Certification Roadmap](https://pauljerimy.com/security-certification-roadmap/)
 > [12 CyberSecurity Professions as per Europe ECSF](https://enisaeu.github.io/ECSF/#/profiles)
+>
+
+# Cyber Sec Job Board
+>[ItJobsWatch](https://www.itjobswatch.co.uk/)
+
 
 |            |          |        |         |
 | ---------- | -------- | ------ | ------- |
