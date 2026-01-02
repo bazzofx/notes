@@ -37,12 +37,14 @@ Welcome to my notes
 - [PostSwigger Academy](https://portswigger.net/web-security/all-topics) ✍️
 - [Public Fire Range](https://public-firing-range.appspot.com/)✍️
 - [OverTheWire (Bash)](https://overthewire.org/wargames/) 🆓
+- [Complete PWPA Training](https://certifications.tcm-sec.com/pwpa/)
     - [Bandit](https://overthewire.org/wargames/bandit/) ✅
     - [Natas](https://overthewire.org/wargames/natas/) 🎯
-- [picoCTF](https://picoctf.org/index.html#picogym) 🆓
+	- [picoCTF](https://picoctf.org/index.html#picogym) 🆓
     - [Web exploitation](https://play.picoctf.org/practice?category=1&page=1) ✍️
+    - [BugForge.io](https://app.bugforge.io/dashboard)
+    - [Dojo-YesWeHack](https://dojo-yeswehack.com/learn)
 - [PostSwigger Academy](https://portswigger.net/web-security/all-topics) ✍️
-    - [Server-side topics](https://portswigger.net/web-security/all-topics) ✍️
 - [APISEC University](https://www.apisecuniversity.com/#courses) 🆓
     - [API Security Fundamentals](https://www.apisecuniversity.com/courses/api-security-fundamentals) 🎯
     - [API Penetration Testing Course](https://www.apisecuniversity.com/courses/api-penetration-testing) 🎯
@@ -53,7 +55,11 @@ Welcome to my notes
     - [CREST CPSA/CRT Preparation](https://academy.hackthebox.com/path/preview/crest-cpsacrt-preparation) 🎯
 - [Postman API Fundamentals Student Expert certification](https://academy.postman.com/postman-api-fundamentals-student-expert-certification-1) 🆓✅
 
-
+## Practice XSS
+- [ ] https://domgo.at/cxss/intro 
+- [ ] http://sudo.co.il/xss/
+## Reading Resources Bug Bounty
+[Client Side Bugs Resources](https://github.com/zomasec/client-side-bugs-resources?tab=readme-ov-file)
 
 ## Recommended Platforms 👍
 
