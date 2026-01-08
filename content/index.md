@@ -61,6 +61,7 @@ Welcome to my notes
 ## Reading Resources Bug Bounty
 [Client Side Bugs Resources](https://github.com/zomasec/client-side-bugs-resources?tab=readme-ov-file)
 
+
 ## Recommended Platforms 👍
 
 - [APISEC University](https://www.apisecuniversity.com/#courses) 🆓
@@ -78,3 +79,4 @@ Welcome to my notes
 [BookHackTricks Wiki](https://book.hacktricks.wiki/en/generic-methodologies-and-resources/external-recon-methodology/index.html)
 [Hackerai.co](https://hackerai.co/)
 [Hacker101](https://www.hacker101.com/videos) 
+[PenTest Book](https://pentestbook.six2dez.com/)

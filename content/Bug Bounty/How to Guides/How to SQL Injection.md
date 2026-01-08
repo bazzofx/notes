@@ -1,3 +1,6 @@
+## SQL Labs
+
+
 ## Methods
 - SQLMap
 - Burp Suite SQL-Extension
@@ -12,3 +15,4 @@
 Note: Be careful with this payload because if the DB has thousands of roles, this could crash the server.
 - Every time we manage to crash the server  using a character for the language of interest, we probably have a ==SQL injection==
 ![[Pasted image 20251128125451.png]]
+
