@@ -1,4 +1,4 @@
-[[How to File Upload]]
+[[File Upload]]
 Secure servers verify that a file's actual content (like image dimensions) matches its expected format rather than just trusting the declared Content-Type. For example, JPEG files always begin with the bytes **FF D8 FF**
 
 This is a much more robust way of validating the file type, but even this isn't foolproof. Using special tools, such as ExifTool, it can be trivial to create a polyglot JPEG file containing malicious code within its metadata.

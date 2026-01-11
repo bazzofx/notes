@@ -6,7 +6,7 @@
 | Folder restriction Upload               | Upload the file to a different folder using **../** pay attention if the value is been decoded by the server also, ie: **..%2f**         |     |
 | Insufficient blacklisting of file types | Blacklist a few extensions but not others, ie: **.php5 or .shtml5**                                                                      |     |
 | Upload our own config file              | Uploading our own .htaccess(Apache) or web.config(IIS), so we can enable our custom file extension                                       |     |
-| Obfuscating file extensions             | Exploit.p.phphp, Exploit.php.jpg, exploit%2Ephp, exploit.asp%00.jpg [[How to File Upload]]                                               |     |
+| Obfuscating file extensions             | Exploit.p.phphp, Exploit.php.jpg, exploit%2Ephp, exploit.asp%00.jpg [[File Upload]]                                               |     |
 | Flaw validation of Content-Type         | Use a polygloth attack to make a file look like a different file type [[Creating Polyglot Files]]                                        |     |
 | Exploit file upload Race Condition      | Send two or more request in quick successions, Post/Get before server AV deletes the file [[Exploiting File Upload and Race Conditions]] |     |
 | Upload client-side scripts .js .html .svg| We can potentially create stored XSS on the server if we can upload these files. Due to same-origin policy restrictions, these kinds of attacks will only work if the uploaded file is served from the same origin to which you upload it|

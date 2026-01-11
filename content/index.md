@@ -26,6 +26,27 @@ Welcome to my notes
 | ---------- | -------- | ------ | ------- |
 | ✍️ Ongoing | 🎯 To-do | ✅ Done | 🆓 Free |
 
+# Achievements Targets 2026
+- [ ] [ BSCP - Burp Practicioner Certified](https://portswigger.net/web-security/certification)
+- [ ] [PWPA - Web Pentest Practicioner Certififed](https://certifications.tcm-sec.com/pwpa/)
+- [ ] [PWPP Web Pentest Professional](https://certifications.tcm-sec.com/pwpp/)
+
+# Achievements  Training Targets 2026
+- [ ] [Complete PostSwigger Academy Labs](https://portswigger.net/web-security/all-topics) ✍️ 
+- [ ] [Learn Advance Browser Web Dev Tools](https://dev.to/lissy93/awesome-dev-tool-tips-32oo)
+- [ ] [OverTheWire (Bash)](https://overthewire.org/wargames/) 🆓
+    - [ ] [Bandit]() ✅
+    - [ ] [Natas](https://overthewire.org/wargames/natas/) 🎯
+- [ ] [Complete Dojo-YesWeHack](https://dojo-yeswehack.com/learn)✍️
+- [ ] [Study APISec Fundamentals](https://www.apisecuniversity.com/courses/api-security-fundamentals)
+- [ ] [Practice PicoCTF](https://play.picoctf.org/practice?category=1&page=1) ✅
+- [ ] [Complete Daily BugForge.io challenges](https://app.bugforge.io/dashboard)✅
+- [ ] - [APISEC University](https://www.apisecuniversity.com/#courses) 🆓
+    - [ ] [API Security Fundamentals](https://www.apisecuniversity.com/courses/api-security-fundamentals) 🎯
+    - [ ] [API Penetration Testing Course](https://www.apisecuniversity.com/courses/api-penetration-testing) 🎯
+    - [ ] [API Authentication](https://www.apisecuniversity.com/courses/api-authentication) 🎯
+
+
 ## Future Goals 🎯
 
 - [Senior Web Penetration Tester (HTB)](https://academy.hackthebox.com/path/preview/senior-web-penetration-tester)
@@ -34,21 +55,6 @@ Welcome to my notes
 
 ## 2026 Goals 🎯
 
-- [PostSwigger Academy](https://portswigger.net/web-security/all-topics) ✍️
-- [Public Fire Range](https://public-firing-range.appspot.com/)✍️
-- [OverTheWire (Bash)](https://overthewire.org/wargames/) 🆓
-- [Complete PWPA Training](https://certifications.tcm-sec.com/pwpa/)
-    - [Bandit](https://overthewire.org/wargames/bandit/) ✅
-    - [Natas](https://overthewire.org/wargames/natas/) 🎯
-	- [picoCTF](https://picoctf.org/index.html#picogym) 🆓
-    - [Web exploitation](https://play.picoctf.org/practice?category=1&page=1) ✍️
-    - [BugForge.io](https://app.bugforge.io/dashboard)
-    - [Dojo-YesWeHack](https://dojo-yeswehack.com/learn)
-- [PostSwigger Academy](https://portswigger.net/web-security/all-topics) ✍️
-- [APISEC University](https://www.apisecuniversity.com/#courses) 🆓
-    - [API Security Fundamentals](https://www.apisecuniversity.com/courses/api-security-fundamentals) 🎯
-    - [API Penetration Testing Course](https://www.apisecuniversity.com/courses/api-penetration-testing) 🎯
-    - [API Authentication](https://www.apisecuniversity.com/courses/api-authentication) 🎯
 - [Hack The Box Academy](https://academy.hackthebox.com/)✍️
     - [Penetration Tester Job Role Path (CPTS)](https://academy.hackthebox.com/path/preview/penetration-tester) ✅
     - [Bug Bounty Hunter Job Role Path (CBBH)](https://academy.hackthebox.com/path/preview/bug-bounty-hunter) ✍️
@@ -58,6 +64,7 @@ Welcome to my notes
 ## Practice XSS
 - [ ] https://domgo.at/cxss/intro 
 - [ ] http://sudo.co.il/xss/
+- [ ] https://public-firing-range.appspot.com/
 ## Reading Resources Bug Bounty
 [Client Side Bugs Resources](https://github.com/zomasec/client-side-bugs-resources?tab=readme-ov-file)
 

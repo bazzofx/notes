@@ -28,8 +28,6 @@ org:verily "verily.com"
 "verily.com" "xoxp-"
 "verilycom" "glpat-"
 
-
-
 # Method 2 
 
 ## Tools

@@ -1,4 +1,4 @@
-
+Below are a few ways to find API and Secret.
 # Method 1 - Katana+Mantra
 
 ## Walkthrough Summary - Method 1
@@ -7,9 +7,6 @@
 | ---- | ------------------------ | ---------------------------------------------------- | --------------------------------- |
 | 1    | Fetch paths of a website | [Katana](https://github.com/projectdiscovery/katana) | Obtained all paths from a website |
 | 2    | Fetch Body and run ReGex | [Mantra](https://github.com/brosck/mantra)           | Will fetch body and perform pattern match in one go|
-
-
-
 ## Instructions
 #step1
 ```bash
@@ -21,9 +18,6 @@ katana -list host.txt -jc -o katana_out.txt
 #Scrape for passwords using Mantra
 cat hosts2.txt | mantra
 ```
-
-
-
 ---
 
 # Method 2 - Katana+ PBFFF + GF
@@ -35,7 +29,6 @@ cat hosts2.txt | mantra
 | 1    | Fetch paths of a website | [Katana](https://github.com/projectdiscovery/katana) | Obtained all paths from a website |
 | 2    | Download the body+header of website | [pbfff](https://github.com/bazzofx/pbfff)           |Downloaded website will be searched for api/passwd |
 | 3    | Custom grep pattern for API| [gf](https://github.com/tomnomnom/gf)              | Using custom grep we search for API keys|
-
 ## Instructions
 #step1
 ```bash
@@ -62,7 +55,6 @@ gf secrets | tee secrets.txt
 ```
 gf -save secrets "(secret|api|aws|azure|gcp|google|github|bitbucket|firebase|datadog|auth0|jwt|mongodb|mongo|postgres|db|database|app|access|secret|private|public|consumer|client|security|slack|service|vault|tomcat|authorization|auth|ftp|cloud|encryption|password|refresh|sso|storage|third[_-]?party|upload|web)[_-]?(key|secret|token|pass|uri|password).{10,70}"
 ```
-
 ### Profit!!!
 ![[Pasted image 20250308115933.png]]
 

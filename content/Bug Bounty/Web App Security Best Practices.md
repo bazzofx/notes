@@ -6,4 +6,3 @@
 - We should send multiple request to the same API to understand what is changing within the cookie, then we compare the cookies to see what  has changed.
 ![[Pasted image 20251123131419.png]]
 - Register a new user and lets compare the cookies of new user with the cookie of the authenticated account
-# Basic Attacks
