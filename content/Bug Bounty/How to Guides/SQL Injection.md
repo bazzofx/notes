@@ -1,3 +1,8 @@
+
+| Attack Tactics| Description|
+|--------------|---------------|
+|Search for endpoints that are serving data which could be linked to a SQL DB ie:(/api/jobs/1)| ie:(login pages, comments, job boards..) Test different characters on the request and see if the application gives an error (**" , ' ; & #**)Confirming error save the request as **req.txt** and send it to **sqlmap -r req.txt --batch --dump --level 3**|
+
 ## SQL Labs
 
 

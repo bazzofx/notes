@@ -1,29 +1,22 @@
-# Squidgame
 
-## Squid Game CTF Challenge
+## **Squid Game CTF Challenge**
 
+##### [Link to SquidGame CTF on Github](https://github.com/bazzofx/squidgame)
   
 > **DISCLAIMER**  
-
-> **This repository contains files that could harm your computer. Use with extreme caution.**  
-
-> - These scripts **will create numerous pop-ups** and modify system settings.  
-
-> - They **will not infect your network**, but they **will spam your desktop and system**.  
-
-> - **Do NOT run this if you don’t know what you’re doing.**  
-
-> - **Take a system snapshot (VM snapshot, restore point, or full backup) BEFORE running.**  
-
-> - An `.\squidgame.ps1 -uninstall` flag is provided, but **manual cleanup may still be required**.  
-
-> - **You are responsible for any damage caused.**
-
-  
+**This repository contains files that could harm your computer. Use with extreme caution.**  
+These scripts **will create numerous pop-ups** and modify system settings.  
+They **will not infect your network**, but they **will spam your desktop and system**.  
+**Do NOT run this if you don’t know what you’re doing.**  
+**Take a system snapshot (VM snapshot, restore point, or full backup) BEFORE running.**  
+An `.\squidgame.ps1 -uninstall` flag is provided, but **manual cleanup may still be required**.  
+**You are responsible for any damage caused.**
 
 ---
 
   
+# Project Link 
+https://github.com/bazzofx/squidgame
 
 # Installing
 

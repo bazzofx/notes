@@ -14,6 +14,7 @@ These are labs to practice XSS vulnerability.
 | ---------------------------------------- | ---------------------------- |
 | [Lab 1](https://domgo.at/cxss/example/1) | Bypassed with img tag on url |
 | [Lab 2](https://domgo.at/cxss/example/2) | XSS by Referrer              |
+|                                          |                              |
 #### Lab 2 
 The attack here require us to host our own malicious web page, and create a referrer chain to the target website that will trigger its function.
 

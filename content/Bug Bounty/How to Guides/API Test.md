@@ -1,4 +1,10 @@
 
+| Flaws                                          | Attacks                                                                                                                            |     |
+| ---------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- | --- |
+| Exploiting an API endpoint using documentation | Use Burp Scanner to crawl and audit OpenAPI documentation, or any other documentation in JSON or YAML format                       |     |
+| Finding unused API endpoints                   | Find hidden endpoints with FUZZING ([FFUF](https://github.com/ffuf/ffuf) or [kiterunner](https://github.com/assetnote/kiterunner)) |     |
+|                                                |                                                                                                                                    |     |
+
 - To begin first identify API endpoints
 - The input data the API processes, including both compulsory and optional parameters.
 - The types of requests the API accepts, including supported HTTP methods and media formats.
@@ -6,6 +12,8 @@
 - Is there a documentation for the API?
 - Test for versions on api - `/api/swagger/v1/users` - `/api/swagger/v2/users`
 - Test using different Content-Type maybe secure on JSON but fails on XML
+
+
 
 ### Burp Extension to help find API Endpoints
 - JS Link Finder BApp
