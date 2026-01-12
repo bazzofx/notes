@@ -1,4 +1,13 @@
 ![[Pasted image 20260112205005.png]]
+
+# Tools
+| Tool                                                      | Description                                                 |
+| --------------------------------------------------------- | ----------------------------------------------------------- |
+| [**Katana**](https://github.com/projectdiscovery/katana)  | URL Fetcher discovery all endpoints on website              |
+| [**Mantra**](https://github.com/brosck/mantra)            | API,Secrets, Token finder                                   |
+| [**httpx**](https://github.com/projectdiscovery/httpx)    | Multipurpose disocvery tool, liver pages, tech-stack & more |
+| [**kiterunner**](https://github.com/assetnote/kiterunner) | Think of dirbusters but for API routes                      |
+
 The lab today is from [BugForge.io Weekly Challenge FurHire](https://app.bugforge.io)T
 Today  took a different approach and started on recon before attempting to attack it, see if I could find any hidden information.
 
@@ -215,5 +224,5 @@ Once the Signing Key is created, we can modify our token to have admin role agai
 With the new token we can update our token again on the Web Browser Local Storage and try loading the page again.
 ![[Pasted image 20260112001110.png]]
 [^1]: Thank you  for the write up [ruur](https://ruur.gitbook.io/) and help with the sql section
-#Pwned
+#Pwned #writeup #bugforge 
 

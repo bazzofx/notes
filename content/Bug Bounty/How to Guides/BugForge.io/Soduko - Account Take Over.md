@@ -24,3 +24,4 @@ We simply copy the 'last_login' that is been used by the application to create a
 # Pwned 
 We are now logged as Admin on the website
 ![[Pasted image 20260108215605.png]]
+#writeup #bugforge 

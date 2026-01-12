@@ -1,5 +1,7 @@
 ## Tools
-[NoWaf](https://github.com/bazzofx/nowaf)  | Will add junk data to a payload to stop the WAF from monitoring it, WAFs avoid monitoring too large requests to save resources on device
+|Tool|Description|
+|------|---------|
+|[NoWaf](https://github.com/bazzofx/nowaf)  | Will add junk data to a payload to stop the WAF from monitoring it, WAFs avoid monitoring too large requests to save resources on device
 
 
 ![[Pasted image 20251231104659.png]]
@@ -52,5 +54,6 @@ This is an alternative payload and more generic using the fetch() function on Ja
 ```
 # Taking Over the Account
 Once we sent the PUT request with our malicious payload to change the user password, if everything went well, we have not successfully change the user password and we owned the account.
+#writeup #bugforge 
 
 
