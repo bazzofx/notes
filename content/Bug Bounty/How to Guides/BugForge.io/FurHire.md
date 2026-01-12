@@ -27,8 +27,16 @@ cat katana_out.txt | mantra
 
 ---
 
+# Checking Technology Stack
+I wanted to double check the app was running a modern framework so I checked the urls we downloaded using katana and used httpx to perform a quick technology scan.
+```bash
+httpx -status-code -title -tech-detect -list katana_out.txt
+```
+![[Pasted image 20260112003650.png]]
 
+---
 # Finding Hidden Api Routes
+
 The next step I took was look for any hidden paths on the application that the developer might have left it hidden to avoid un-authorized access.
 I have used [KiteRunner](https://github.com/assetnote/kiterunner) to help brute force the api routes.
 > Important to notice that I have used an authenticated scan, with the option **-H** we can pass the headers with our bearer token
