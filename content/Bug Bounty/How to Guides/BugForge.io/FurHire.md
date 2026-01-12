@@ -41,6 +41,9 @@ I have used [KiteRunner](https://github.com/assetnote/kiterunner) to help brute 
 kr scan $target  -w medium-admin-api-routes.kite -H $token -x 20  --wildcard-detection=false --fail-status-codes 404
 
 ```
+> Obs: Here I use a custom admin list, which is a normal wordlist.txt but we have to convert to .kite using the below
+> `kr kb convert wordlist.txt wordlist.kite`
+
 
 | Flags                      | Description                                                        |
 | -------------------------- | ------------------------------------------------------------------ |
