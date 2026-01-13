@@ -1,12 +1,12 @@
 ![[Pasted image 20260112205005.png]]
 
 # Tools
-| Tool                                                      | Description                                                 |
-| --------------------------------------------------------- | ----------------------------------------------------------- |
-| [**Katana**](https://github.com/projectdiscovery/katana)  | URL Fetcher discovery all endpoints on website              |
-| [**Mantra**](https://github.com/brosck/mantra)            | API,Secrets, Token finder                                   |
-| [**httpx**](https://github.com/projectdiscovery/httpx)    | Multipurpose disocvery tool, liver pages, tech-stack & more |
-| [**kiterunner**](https://github.com/assetnote/kiterunner) | Think of dirbusters but for API routes                      |
+| Tool                                                      | Description                                                  |
+| --------------------------------------------------------- | ------------------------------------------------------------ |
+| [**Katana**](https://github.com/projectdiscovery/katana)  | URL Fetcher discovery all endpoints on website               |
+| [**Mantra**](https://github.com/brosck/mantra)            | API,Secrets, Token finder                                    |
+| [**httpx**](https://github.com/projectdiscovery/httpx)    | Multipurpose disocvery tool, pages status, tech-stack & more |
+| [**kiterunner**](https://github.com/assetnote/kiterunner) | Think of dirbusters but for API routes                       |
 
 The lab today is from [BugForge.io Weekly Challenge FurHire](https://app.bugforge.io)T
 Today  took a different approach and started on recon before attempting to attack it, see if I could find any hidden information.
