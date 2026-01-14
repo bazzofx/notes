@@ -11,7 +11,8 @@ So I fired up **sqlfinder** to crawl the pages and test for common sql injection
 Unfortunately nothing came up..
 >[!Note]
 >You can find the beta version of **sqlfinder** on the link below.
-`ris:Github`Github Link: [sqlfinder](https://github.com/bazzofx/sqlfinder)
+ ![[github.png]] Github Link: [sqlfinder](https://github.com/bazzofx/sqlfinder)
+
 
 ![[Pasted image 20260114203853.png]]
 

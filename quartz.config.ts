@@ -1,6 +1,7 @@
 import { reduce } from "d3"
 import { QuartzConfig } from "./quartz/cfg"
 import * as Plugin from "./quartz/plugins"
+<link rel="stylesheet" href="/static/path/to/font-awesome.min.css">
 
 const config: QuartzConfig = {
   configuration: {
