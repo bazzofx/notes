@@ -32,20 +32,22 @@ Welcome to my notes
 - [ ] [PWPP Web Pentest Professional](https://certifications.tcm-sec.com/pwpp/)
 
 # Achievements  Training Targets 2026
-- [ ] [Complete PostSwigger Academy Labs](https://portswigger.net/web-security/all-topics) ✍️ 
-- [ ] [Learn Advance Browser Web Dev Tools](https://dev.to/lissy93/awesome-dev-tool-tips-32oo)
-- [ ] [OverTheWire (Bash)](https://overthewire.org/wargames/) 🆓
-    - [ ] [Bandit]() ✅
-    - [ ] [Natas](https://overthewire.org/wargames/natas/) 🎯
-- [ ] [Complete Dojo-YesWeHack](https://dojo-yeswehack.com/learn)✍️
-- [ ] [Study APISec Fundamentals](https://www.apisecuniversity.com/courses/api-security-fundamentals)
-- [ ] [Practice PicoCTF](https://play.picoctf.org/practice?category=1&page=1) ✅
-- [ ] [Complete Daily BugForge.io challenges](https://app.bugforge.io/dashboard)✅
-- [ ] - [APISEC University](https://www.apisecuniversity.com/#courses) 🆓
-    - [ ] [API Security Fundamentals](https://www.apisecuniversity.com/courses/api-security-fundamentals) 🎯
-    - [ ] [API Penetration Testing Course](https://www.apisecuniversity.com/courses/api-penetration-testing) 🎯
-    - [ ] [API Authentication](https://www.apisecuniversity.com/courses/api-authentication) 🎯
-
+- [Complete PostSwigger Academy Labs](https://portswigger.net/web-security/all-topics) ✍️ 
+- [Learn Advance Browser Web Dev Tools](https://dev.to/lissy93/awesome-dev-tool-tips-32oo)
+- [OverTheWire (Bash)](https://overthewire.org/wargames/) 🆓
+    -  [Bandit]() ✅
+    -  [Natas](https://overthewire.org/wargames/natas/) 🎯
+- [Complete Dojo-YesWeHack](https://dojo-yeswehack.com/learn)✍️
+- [Study APISec Fundamentals](https://www.apisecuniversity.com/courses/api-security-fundamentals)
+- [Practice PicoCTF](https://play.picoctf.org/practice?category=1&page=1) ✅
+- [Complete Daily BugForge.io challenges](https://app.bugforge.io/dashboard)✅
+- - [APISEC University](https://www.apisecuniversity.com/#courses) 🆓
+    - [API Security Fundamentals](https://www.apisecuniversity.com/courses/api-security-fundamentals) 🎯
+    - [API Penetration Testing Course](https://www.apisecuniversity.com/courses/api-penetration-testing) 🎯
+    - [API Authentication](https://www.apisecuniversity.com/courses/api-authentication) 🎯
+-  LLM AI Hacking practice
+	- [GPA-43.Z CTF]([https://gpa.43z.one)
+	- [PromptAirlines CTF](https://promptairlines.com/ "https://promptairlines.com/")
 
 ## Future Goals 🎯
 
