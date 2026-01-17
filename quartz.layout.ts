@@ -3,12 +3,7 @@ import * as Component from "./quartz/components"
 
 // components shared across all pages
 export const sharedPageComponents: SharedLayout = {
-  head: Component.Head({
-    additionalHead: [
-      // Remove the Font Awesome link from here
-      // Add custom CSS instead
-    ],
-  }),
+  head: Component.Head(),
   header: [],
   afterBody: [],
   footer: Component.Footer({
@@ -17,12 +12,6 @@ export const sharedPageComponents: SharedLayout = {
       LinkedIn: "https://www.linkedin.com/in/paulo-bazzo-91539393/",
     },
   }),
-  
-  // Add custom CSS here
-  css: [
-    // This will be included in the generated index.css
-    Component.style("custom.scss"),
-  ],
 }
 
 // components for pages that display a single page (e.g. a single note)
