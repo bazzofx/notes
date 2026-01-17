@@ -1,4 +1,4 @@
-Todays challenge is #BrokenAccessControl 
+Today's' challenge tip is #BrokenAccessControl . This can happen when a developer hides certain parts of the application but does not implement the necessary Authorization checks to verify access. 
 # Recon 
 First step is to set up a few scanners in the backgroud to try some low hanging fruits and help map the application
 

@@ -1,7 +1,5 @@
 
 
-
-
 #### Reference
 [DeepWiki SQL Inject CheatSheet](https://deepwiki.com/EdOverflow/bugbounty-cheatsheet/2.2.3-sql-injection-(sqli))
 [WebSecWordPress Advance SQL Injections](https://websec.wordpress.com/2010/03/19/exploiting-hard-filtered-sql-injections/)
