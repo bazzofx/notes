@@ -5,11 +5,8 @@ import * as Component from "./quartz/components"
 export const sharedPageComponents: SharedLayout = {
   head: Component.Head({
     additionalHead: [
-      // Font Awesome CDN
-      `<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />`,
-      
-      // Alternatively, if you want to use Font Awesome 5:
-      // `<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" crossorigin="anonymous" />`
+      // Remove the Font Awesome link from here
+      // Add custom CSS instead
     ],
   }),
   header: [],
@@ -20,6 +17,12 @@ export const sharedPageComponents: SharedLayout = {
       LinkedIn: "https://www.linkedin.com/in/paulo-bazzo-91539393/",
     },
   }),
+  
+  // Add custom CSS here
+  css: [
+    // This will be included in the generated index.css
+    Component.style("custom.scss"),
+  ],
 }
 
 // components for pages that display a single page (e.g. a single note)
@@ -35,6 +38,7 @@ export const defaultContentPageLayout: PageLayout = {
     Component.MobileOnly(Component.Spacer()),
     Component.Search(),
     Component.Darkmode(),
+    // Component.DesktopOnly(Component.Explorer()),
     Component.Explorer()
   ],
   right: [
