@@ -49,27 +49,12 @@ Welcome to my notes
 	- [GPA-43.Z CTF]([https://gpa.43z.one)
 	- [PromptAirlines CTF](https://promptairlines.com/ "https://promptairlines.com/")
 
-## Future Goals 🎯
-
-- [Senior Web Penetration Tester (HTB)](https://academy.hackthebox.com/path/preview/senior-web-penetration-tester)
-- [UnderTheWire (PowerShell)](https://underthewire.tech/wargames) ✍️
-- [Attacking and Defending AWS (THM)](https://tryhackme.com/path/outline/attackinganddefendingaws)
-
-## 2026 Goals 🎯
-
-- [Hack The Box Academy](https://academy.hackthebox.com/)✍️
-    - [Penetration Tester Job Role Path (CPTS)](https://academy.hackthebox.com/path/preview/penetration-tester) ✅
-    - [Bug Bounty Hunter Job Role Path (CBBH)](https://academy.hackthebox.com/path/preview/bug-bounty-hunter) ✍️
-    - [CREST CPSA/CRT Preparation](https://academy.hackthebox.com/path/preview/crest-cpsacrt-preparation) 🎯
-- [Postman API Fundamentals Student Expert certification](https://academy.postman.com/postman-api-fundamentals-student-expert-certification-1) 🆓✅
-
 ## Practice XSS
 - [ ] https://domgo.at/cxss/intro 
 - [ ] http://sudo.co.il/xss/
 - [ ] https://public-firing-range.appspot.com/
 ## Reading Resources Bug Bounty
 [Client Side Bugs Resources](https://github.com/zomasec/client-side-bugs-resources?tab=readme-ov-file)
-
 
 ## Recommended Platforms 👍
 
