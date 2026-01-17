@@ -1,6 +1,6 @@
-
+Todays challenge is #BrokenAccessControl 
 # Recon 
-First step is to set up a few scanners in the bacgroud to try some low hanging fruits and help map the application
+First step is to set up a few scanners in the backgroud to try some low hanging fruits and help map the application
 
 ### Kiterunner
 Found a few endpoints but unfortunatelly they were either `404:NotFound` or `502:ServerError`
@@ -24,4 +24,3 @@ It was also possible to retrieve it from the UI this time. Going into the admin 
 
 # Issues
 - Unauthorized Access Control
-- #
