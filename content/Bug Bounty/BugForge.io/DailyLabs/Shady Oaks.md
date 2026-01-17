@@ -2,13 +2,6 @@ Todays challenge is #BrokenAccessControl
 # Recon 
 First step is to set up a few scanners in the backgroud to try some low hanging fruits and help map the application
 
-```html
-<i class="fab fa-github"></i>
-```
-
-
-<span class="fab fa-github"></span>
-<i class="fab fa-github"></i>  Github
 ### Kiterunner
 Found a few endpoints but unfortunatelly they were either `404:NotFound` or `502:ServerError`
 ![[Pasted image 20260116232348.png]]
