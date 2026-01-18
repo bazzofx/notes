@@ -1,5 +1,5 @@
 
-This is a lab with #BrokenAccessControl where a functionality of the app to protecte users from seen each other private information is not working correctly.
+This is a lab with #BrokenAccessControl where a functionality of the app to protect users from seen each others  private information is not working correctly.
 # Recon Phase
 The first step for me is to map the application I use 
 `sqlfinder, kiterunner, katana` to help me test for SQL Injection while crawling the application for interesting endpoints.
@@ -8,6 +8,7 @@ I did found a `/admin` page which I spend quite some time testing but unfortunat
 The below is the result of the SQL Injection crawler Im working on, it did found a few of the hidden `/admin` endpoints, however the  SQL Injection is false,  it was triggered because the difference between status code but that alone is not good enough indication of SQLi
 ![[Pasted image 20260118001432.png]]
 
+# Manual Poking around..
 ## Testing File Upload
 Next I tried to reproduce some [[File Upload]]  [[Path Tranversal]] vulnerabilities but that didn go as I expected,  I could not image the CTF flag been displayed using this mechanism so I did not spend too much time on it.
 
@@ -22,7 +23,7 @@ Because we are dealing with WebSockets there is a constant back and forth of com
 >[!Note]
 >Notice there is a "Preview" button on the Test2 account notification page, that interaction will also send a response back, and possible through WebSocket, which in this case was the key to the lab.
 
-I crafted a message, clear the history and press sent.
+I crafted a message, clear the history and press send.
 For a quick moment we can see the result of our action without any noise, now lts inspect those requests and see what we can manipulate
 ![[Pasted image 20260118005940.png]]
 
