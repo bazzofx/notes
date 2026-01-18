@@ -3,7 +3,11 @@
 #### Reference
 [DeepWiki SQL Inject CheatSheet](https://deepwiki.com/EdOverflow/bugbounty-cheatsheet/2.2.3-sql-injection-(sqli))
 [WebSecWordPress Advance SQL Injections](https://websec.wordpress.com/2010/03/19/exploiting-hard-filtered-sql-injections/)
+[PayloadsAllTheThings/SQL Injection/Intruder/Auth_Bypass.txt at master · swisskyrepo/PayloadsAllTheThings · GitHub](https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/SQL%20Injection/Intruder/Auth_Bypass.txt) – list auth for sql brute force authentication
 
+[SQL Injection - HackTricks](https://book.hacktricks.wiki/en/pentesting-web/sql-injection/index.html)
+
+[SQLMap - CheatSheet - HackTricks](https://book.hacktricks.wiki/en/pentesting-web/sql-injection/sqlmap/index.html)
 
 ## SQLMap Commands
 #### Quick and Dirty, dump it all!
