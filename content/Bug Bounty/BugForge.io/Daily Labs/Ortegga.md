@@ -53,3 +53,11 @@ Instead of exposing direct database IDs (like `12345`), use random, unpredictab
 ### Why Burp sees all WebSockets and Dev Tools does not?
 Burp sits in the middle of the connection like a MITM, so its capture every transmission sent.
 The browser is messages are often: Grouped,  Filtered or  Lazy-loaded
+
+### **Further reading:**
+
+[Awesome Websockets List](https://github.com/PalindromeLabs/awesome-websocket-security)
+#### Web Socket Scanners
+![[Pasted image 20260118015121.png]]
+- [wshawk](https://github.com/noobforanonymous/wshawk) - *Not reliable yet, but worth keeping an eye on it..*
+- [STEWS](https://github.com/PalindromeLabs/STEWS) - *Maybe good for fingerprinting servers, and test common WS:// CVEs*
