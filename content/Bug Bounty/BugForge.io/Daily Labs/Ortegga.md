@@ -61,3 +61,4 @@ The browser is messages are often: Grouped,  Filtered or  Lazy-loaded
 ![[Pasted image 20260118015121.png]]
 - [wshawk](https://github.com/noobforanonymous/wshawk) - *Not reliable yet, but worth keeping an eye on it..*
 - [STEWS](https://github.com/PalindromeLabs/STEWS) - *Maybe good for fingerprinting servers, and test common WS:// CVEs*
+#writeup #bugfoge 
