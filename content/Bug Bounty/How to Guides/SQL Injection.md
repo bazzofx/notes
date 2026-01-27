@@ -5,7 +5,6 @@
 
 ## SQL Labs
 
-
 ## Methods
 - SQLMap
 - Burp Suite SQL-Extension

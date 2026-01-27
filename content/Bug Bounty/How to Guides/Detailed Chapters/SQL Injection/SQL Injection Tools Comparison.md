@@ -7,21 +7,16 @@ We will also be looking into a few other SQL Map Injection tools, rate them betw
  - Speed
 
 
-
-
 # Tools
-| **Name**                           |Rating| **GitHub Link**                                                                                                             | **Crawling / DB Enumeration**           | **Speed / Attack Type**                      | **Direct Attack / Blind SQL**                 | **Description**                                                                                       |
-| ---------------------------------- |-------| --------------------------------------------------------------------------------------------------------------------------- | --------------------------------------- | -------------------------------------------- | --------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
-| **SQLMap**                         |⭐⭐️⭐️⭐️⭐️| [https://github.com/sqlmapproject/sqlmap](https://github.com/sqlmapproject/sqlmap)                                          | ✔️ yes (enumerates DB, tables, columns) | 🚀 automated, can be slower on blind methods | ✔️ supports Boolean, Time-based, Error, UNION | Automatic SQL injection exploitation and database takeover tool — very comprehensive SQLi automation. |
-| **Ghauri**                         |⭐⭐️⭐️⭐️ | [https://github.com/r0oth3x49/ghauri](https://github.com/r0oth3x49/ghauri?utm_source=chatgpt.com)                           | ✔️ DB enumeration                       | ⚡ automated SQLi detection                   | ✔️ supports Boolean, Error, Time, Stacked     | Python tool to detect & exploit SQL injection flaws; cross-platform and scriptable.                   |
-| **jSQL Injection**                 |⭐️     | [https://github.com/ron190/jsql-injection](https://github.com/ron190/jsql-injection)                                        | ✔️ DB info extraction                   | ⚙️ semi-automated                            | ✔️ automatic SQL database injection           | Java GUI tool that automates SQLi and can extract databases.                                          |
-| **BBQSQL**                         |⭐️     | [https://github.com/CiscoCXSecurity/bbqsql](https://github.com/CiscoCXSecurity/bbqsql?utm_source=chatgpt.com)               | ⚠️ requires manual setup                | 🐇 moderately fast (gevent concurrency)      | ✔️ blind SQL injection focused                | Python framework for blind SQLi with customizable queries.                                            |
-| **NoSQLMap**                       |⭐️     | [https://github.com/codingo/NoSQLMap](https://github.com/codingo/NoSQLMap)                                                  | ✔️ NoSQL DB enumeration                 | ⚙️ script-driven                             | ❌ not classic SQL, NoSQL focus                | Automates injection against NoSQL databases (e.g., MongoDB).                                          |
-| **DSSS (Damn Small SQLi Scanner)** |⭐️     | [https://github.com/stamparm/DSSS](https://github.com/stamparm/DSSS)                                                        | ✔️ basic scanning                       | 🐢 simple, light tool                        | ✔️ SQLi scanner, basic exploitation           | Lightweight Python SQLi scanner with GET/POST support.                                                |
-| **Explo**                          |⭐️     | https://github.com/dtag-dev-sec/explo                                                                                       | ❌ not a SQLi crawler                    | ⚡ fast format tool                           | ❌ not direct SQL attack                       | Web vulnerability testing format tool — not specifically SQL.                                         |
-| **Blind-SQL-Bitshifting**          |⭐️     | [https://github.com/awnumar/blind-sql-bitshifting](https://github.com/awnumar/blind-sql-bitshifting?utm_source=chatgpt.com) | ❌ not a crawler                         | ⚡ bitwise blind method                       | ✔️ blind SQLi via bit-shifting                | Python module that performs blind SQL extraction using bit shifts.                                    |
-| **Blisqy**                         |⭐️     | https://github.com/JohnTroony/Blisqy      
-## Targets
+| **Name**                           | Rating    | **GitHub Link**                                                                                   | **Crawling / DB Enumeration**                     | **Speed / Attack Type**                     | **Direct Attack / Blind SQL**                 | **Description**                                                                                       |
+| ---------------------------------- | --------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------- | ------------------------------------------- | --------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
+| **SQLMap**                         | ⭐⭐️⭐️⭐️⭐️ | [https://github.com/sqlmapproject/sqlmap](https://github.com/sqlmapproject/sqlmap)                | ❌ yes but its slow as fu.... and it does not work | 🐢automated, can be slower on blind methods | ✔️ supports Boolean, Time-based, Error, UNION | Automatic SQL injection exploitation and database takeover tool — very comprehensive SQLi automation. |
+| **Ghauri**                         | ⭐⭐️⭐️⭐️   | [https://github.com/r0oth3x49/ghauri](https://github.com/r0oth3x49/ghauri?utm_source=chatgpt.com) | ❌ yes but its slow as fu.... and it does not work | ⚡ automated SQLi detection                  | ✔️ supports Boolean, Error, Time, Stacked    | Python tool to detect & exploit SQL injection flaws; cross-platform and scriptable.                  |
+| **SqlFinder**                      | ⭐⭐️       | [https://github.com/bazzofx/sqlfinder](https://github.com/bazzofx/sqlfinder])                    | ✔️ yes it will crawl and test for SQL Injections   | ⚡ automated SQLi detection                  | ✔️ supports Boolean,Difference,Time, Stacked   | This application is entirely written in bash, nothing fancy here this time.  |
+| **jSQL Injection**                 | ⭐️⭐️⭐️    | [https://github.com/ron190/jsql-injection](https://github.com/ron190/jsql-injection)              | ❌No Crawling capabilities                         | ⚙️ semi-automated                           | ✔️ automatic SQL database injection           | Java GUI tool that automates SQLi and can extract databases.                                          |
+| **NoSQLMap**                       | ⭐️        | [https://github.com/codingo/NoSQLMap](https://github.com/codingo/NoSQLMap)                        | ❌No Crawling capabilities                         | ⚙️ script-driven                            | ❌ not classic SQL, NoSQL focus              | Automates injection against NoSQL databases (e.g., MongoDB).                                          |
+| **DSSS (Damn Small SQLi Scanner)** | ⭐️        | [https://github.com/stamparm/DSSS](https://github.com/stamparm/DSSS)                              | ❌No Crawling capabilities                         | 🐢 simple, and fast                         | ✔️ SQLi scanner, basic exploitation          | Lightweight Python SQLi scanner with GET/POST support.                                               |
+
 
 We will be using a few labs from [PortSwiggerAcademy]() as well as a vulnerable lab from [BugForge.io] called Fur Hire
 ![[Pasted image 20260117140404.png]]
@@ -30,7 +25,8 @@ We will be using a few labs from [PortSwiggerAcademy]() as well as a vulnerable 
 >The variables used during scanning are
 >
 >token='Authorization: Bearer ey.....GeoE'
-# SQL Map
+# SQL Map 
+![[Pasted image 20260118021323.png]]
 ### Website Crawling Test
 SQLMap has the capacity to crawl  a website and test if ro SQL Injection, however this seems to be very slow and so far I had not had luck with it.
 #### Crawl a website and test for SQL Injection
@@ -49,7 +45,7 @@ sqlmap -u $url --crawl=1 --random-agent --batch --forms --threads=5 --level=5 --
 > Returned saying there are no parameters, when in fact there is
 
 ### Direct Injection Test SQLMap
-Direct invokation of SQLMap has picked up the wrong page.
+Direct invocation of SQLMap has discovered the wrong page, not sure what happened here, when I skipped the script finished running so no detection.
 ```bash
 token='Authoriation: Bearer ey...'
 url="`https://lab-1768658597983-vfm9xi.labs-app.bugforge.io/jobs/1`"
@@ -71,16 +67,14 @@ sqlmap -r req.txt --batch --headers=$token --dump
 ```
 ---
 ## SQLMap Conclusion
-If we know the correct endpoint to test the sqlmap injection, SQLMap works wonders to test a varierty of SQL Injection techniques attempting to infect the database and extract the data.
+If we know the correct endpoint to test the sqlmap injection, Sqlmap works wonders to test a variety of SQL Injection techniques attempting to infect the database and extract the data.
 
 ---
-
 
 # Ghauri
 ![[Pasted image 20260117150203.png]]
 ### Install
 ```text
-Install
 git clone https://github.com/r0oth3x49/ghauri
 cd ghauri
 python -m venv venv
@@ -94,7 +88,6 @@ Crawling pages for SQL Injection is not supported naturally by Ghauri
 
 ### Direct Injection Test Ghauri
 - Outputs similar to SQlMap, 
-
 ```bash
 ghauri -u $target --dbs --headers $token
 ```
@@ -106,12 +99,10 @@ Obs: Different from BurpSuite, this needs to be just headers.txt
 ghauri -r headers.txt --headers="$token" --batch --dbs --random-agent
 ```
 ![[Pasted image 20260117152110.png]]
-
 ## Ghauri Conclusion
 Ghauri looks to be very similar to SQL Map , I was not able to get an SQL injection on the target test, but I believe this was due to user error.
 
 ---
-
 # SQLFinder
 This is a tool I'm currently working on which will crawl a website and fetch its endpoints, then after a filter we send them to the queue where we will be checking for some SQL Injection.
  Current features are:
@@ -119,6 +110,31 @@ This is a tool I'm currently working on which will crawl a website and fetch its
 - Boolean SQL injection
 - Difference SQL Injection
 - Login page bypass when authentication is done on url (JSON login not supported yet)
-### Craw
+## Crawling + SQL Injecting
 ![[Pasted image 20260117175829.png]]
 
+## SQL Finder Conclusion
+Obviously Im very biased with this tool as I created it, but I will give it a 2 stars for now.
+
+---
+# JSQL  Injection
+## Installing
+Download from the github page directly or run the below if using Kali
+[JSQL Injection](https://github.com/ron190/jsql-injection)
+```bash
+sudo apt-get -f install jsql
+
+```
+![[Pasted image 20260118020754.png]]
+
+## JSQL Injection Conclusion
+This is a great tool to test for individual endpoint SQL Injection, as long with other types of attacks, like admin panel discovery, exploits. However it does not have Crawlng capabilities
+
+---
+# DSSS(Damn Small SQL Scanner)
+## Install
+Simply clone the repo and run with `python3 dsss.py`
+
+![[Pasted image 20260118022231.png]]
+### DSS Conclusion
+Not very reliable from as per my tests, it was not able to detect SQL Injection on the PortSwigger labs. I will continue testing, but so far it gets a low score.
