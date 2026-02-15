@@ -14,6 +14,14 @@ export const sharedPageComponents: SharedLayout = {
   }),
 }
 
+// component for Landing Page
+export const landingPageLayout: PageLayout = {
+  beforeBody: [],
+  left: [],
+  right: [],
+}
+
+
 // components for pages that display a single page (e.g. a single note)
 export const defaultContentPageLayout: PageLayout = {
   beforeBody: [
