@@ -12,7 +12,7 @@ import { Argv } from "../../util/ctx"
 import { FilePath, isRelativeURL, joinSegments, pathToRoot } from "../../util/path"
 import {
   defaultContentPageLayout,
-  landingPageLayout,
+  homeContentPageLayout,
   sharedPageComponents,
 } from "../../../quartz.layout"
 import { Content } from "../../components"
@@ -98,7 +98,7 @@ export const ContentPage: QuartzEmitterPlugin<Partial<FullPageLayout>> = (userOp
         // -----------------------------
         const layout =
           slug === "index"
-            ? { ...sharedPageComponents, ...landingPageLayout }
+            ? { ...sharedPageComponents, ...homeContentPageLayout }
             : { ...sharedPageComponents, ...defaultContentPageLayout }
 
         const opts: FullPageLayout = {

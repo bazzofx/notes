@@ -1,10 +1,10 @@
 {
-  "name": "@jackyzha0/quartz",
-  "description": "🌱 publish your digital garden and notes as a website",
+  "name": "@bazzofx/quartz",
+  "description": "🌱 Cyber Samurai Garden",
   "private": true,
   "version": "4.4.0",
   "type": "module",
-  "author": "jackyzha0 <j.zhao2k19@gmail.com>",
+  "author": "BazzoFX <hello@cybersamurai.co.uk",
   "license": "MIT",
   "homepage": "https://quartz.jzhao.xyz",
   "repository": {
