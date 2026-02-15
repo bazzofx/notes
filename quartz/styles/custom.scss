@@ -1,3 +1,20 @@
 @use "./base.scss";
 
 // put your custom CSS here!
+/* Hide all tag links */
+a.internal.tag-link,
+ul.tags {
+  display: none !important;
+}
+p.meta{
+  font-size:10px;
+}
+
+// .section-ul{
+//   display:flex;
+//   flex-direction: column;
+// }
+// .section-li{
+//   // border:2px solid red;
+//   padding:10px
+// }
