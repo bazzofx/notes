@@ -14,21 +14,15 @@ export const sharedPageComponents: SharedLayout = {
   }),
 }
 
-// component for Landing Page
-export const landingPageLayout: PageLayout = {
-  beforeBody: [],
-  left: [],
-  right: [],
-}
 
 
 // components for pages that display a single page (e.g. a single note)
 export const defaultContentPageLayout: PageLayout = {
   beforeBody: [
     Component.Breadcrumbs(),
-    Component.ArticleTitle(),
+    // Component.ArticleTitle(),
     Component.ContentMeta(),
-    Component.TagList(),
+    // Component.TagList(),
   ],
   left: [
     Component.PageTitle(),
@@ -44,18 +38,30 @@ export const defaultContentPageLayout: PageLayout = {
     // Component.Backlinks(),
   ],
 }
+
+// component for Landing Page
+// export const landingPageLayout: PageLayout = {
+//   beforeBody: [],
+//   left: [],
+//   right: [],
+// }
+
 export const homeContentPageLayout: PageLayout = {
   beforeBody: [],
 
   left: [
-    Component.Explorer()
+    // Component.Explorer()
   ],
 
   right: []
 }
 // components for pages that display lists of pages  (e.g. tags or folders)
 export const defaultListPageLayout: PageLayout = {
-  beforeBody: [Component.Breadcrumbs(), Component.ArticleTitle(), Component.ContentMeta()],
+  beforeBody: [
+    Component.Breadcrumbs(), 
+    // Component.ArticleTitle(), 
+    Component.ContentMeta()
+  ],
   left: [
     Component.PageTitle(),
     Component.MobileOnly(Component.Spacer()),
