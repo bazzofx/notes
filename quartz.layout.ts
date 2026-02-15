@@ -1,10 +1,10 @@
 import { PageLayout, SharedLayout } from "./quartz/cfg"
 import * as Component from "./quartz/components"
-
+import { Navbar } from "./quartz/components/Navbar"
 // components shared across all pages
 export const sharedPageComponents: SharedLayout = {
   head: Component.Head(),
-  header: [],
+  header: [Navbar()],
   afterBody: [],
   footer: Component.Footer({
     links: {
