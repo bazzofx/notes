@@ -10,14 +10,19 @@ import { pageResources, renderPage } from "../../components/renderPage"
 import { FullPageLayout } from "../../cfg"
 import { Argv } from "../../util/ctx"
 import { FilePath, isRelativeURL, joinSegments, pathToRoot } from "../../util/path"
-import { defaultContentPageLayout, sharedPageComponents } from "../../../quartz.layout"
+import {
+  defaultContentPageLayout,
+  homeContentPageLayout,
+  sharedPageComponents,
+} from "../../../quartz.layout"
 import { Content } from "../../components"
 import chalk from "chalk"
 import { write } from "./helpers"
 import DepGraph from "../../depgraph"
 
-// get all the dependencies for the markdown file
-// eg. images, scripts, stylesheets, transclusions
+// ---------------------------------------------
+// Parse dependencies in a markdown file
+// ---------------------------------------------
 const parseDependencies = (argv: Argv, hast: Root, file: VFile): string[] => {
   const dependencies: string[] = []
 
@@ -30,55 +35,36 @@ const parseDependencies = (argv: Argv, hast: Root, file: VFile): string[] => {
     ) {
       ref = elem.properties.src.toString()
     } else if (["a", "link"].includes(elem.tagName) && elem?.properties?.href) {
-      // transclusions will create a tags with relative hrefs
       ref = elem.properties.href.toString()
     }
 
-    // if it is a relative url, its a local file and we need to add
-    // it to the dependency graph. otherwise, ignore
-    if (ref === null || !isRelativeURL(ref)) {
-      return
-    }
+    if (ref === null || !isRelativeURL(ref)) return
 
     let fp = path.join(file.data.filePath!, path.relative(argv.directory, ref)).replace(/\\/g, "/")
-    // markdown files have the .md extension stripped in hrefs, add it back here
-    if (!fp.split("/").pop()?.includes(".")) {
-      fp += ".md"
-    }
+    if (!fp.split("/").pop()?.includes(".")) fp += ".md"
+
     dependencies.push(fp)
   })
 
   return dependencies
 }
 
+// ---------------------------------------------
+// ContentPage Emitter
+// ---------------------------------------------
 export const ContentPage: QuartzEmitterPlugin<Partial<FullPageLayout>> = (userOpts) => {
-  const opts: FullPageLayout = {
-    ...sharedPageComponents,
-    ...defaultContentPageLayout,
-    pageBody: Content(),
-    ...userOpts,
-  }
-
-  const { head: Head, header, beforeBody, pageBody, afterBody, left, right, footer: Footer } = opts
   const Header = HeaderConstructor()
   const Body = BodyConstructor()
 
   return {
     name: "ContentPage",
+
     getQuartzComponents() {
-      return [
-        Head,
-        Header,
-        Body,
-        ...header,
-        ...beforeBody,
-        pageBody,
-        ...afterBody,
-        ...left,
-        ...right,
-        Footer,
-      ]
+      // Components are attached per-page in emit()
+      return []
     },
+
+    // Builds the dependency graph
     async getDependencyGraph(ctx, content, _resources) {
       const graph = new DepGraph<FilePath>()
 
@@ -94,18 +80,36 @@ export const ContentPage: QuartzEmitterPlugin<Partial<FullPageLayout>> = (userOp
 
       return graph
     },
+
+    // Emits HTML pages
     async emit(ctx, content, resources): Promise<FilePath[]> {
       const cfg = ctx.cfg.configuration
       const fps: FilePath[] = []
       const allFiles = content.map((c) => c[1].data)
 
       let containsIndex = false
+
       for (const [tree, file] of content) {
         const slug = file.data.slug!
-        if (slug === "index") {
-          containsIndex = true
+        if (slug === "index") containsIndex = true
+
+        // -----------------------------
+        // Select layout per page
+        // -----------------------------
+        const layout =
+          slug === "index"
+            ? { ...sharedPageComponents, ...homeContentPageLayout }
+            : { ...sharedPageComponents, ...defaultContentPageLayout }
+
+        const opts: FullPageLayout = {
+          ...layout,
+          pageBody: Content(),
+          ...userOpts,
         }
 
+        // -----------------------------
+        // Prepare component data
+        // -----------------------------
         const externalResources = pageResources(pathToRoot(slug), file.data, resources)
         const componentData: QuartzComponentProps = {
           ctx,
@@ -117,10 +121,14 @@ export const ContentPage: QuartzEmitterPlugin<Partial<FullPageLayout>> = (userOp
           allFiles,
         }
 
-        const content = renderPage(cfg, slug, componentData, opts, externalResources)
+        // -----------------------------
+        // Render page
+        // -----------------------------
+        const contentHTML = renderPage(cfg, slug, componentData, opts, externalResources)
+
         const fp = await write({
           ctx,
-          content,
+          content: contentHTML,
           slug,
           ext: ".html",
         })
