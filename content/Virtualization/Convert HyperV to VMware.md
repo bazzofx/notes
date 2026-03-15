@@ -44,10 +44,10 @@ C:\apps\qemu\qemu-img.exe convert -O vdi "C:\VMs\kali-linux-2024.3-hyperv-amd64\
 
 ```
 
-#Resize Image on HyperV
+## Resize Image on HyperV
 Resize-VHD -Path C:\VMs\kali4\kali-linux-2024.3-hyperv-amd64.vhdx -SizeBytes 200GB
 
-#Verify worked
+## Verify worked
 C:\Apps\qemu\qemu-img.exe info C:\VMs\kali4\kali-linux-2024.3-hyperv-amd64.vhdx
 ## Other Disk Commands
 fdisk -l
