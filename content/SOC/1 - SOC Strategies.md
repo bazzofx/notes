@@ -1,4 +1,4 @@
-
+ref: [World Class SOC.pdf](https://www.mitre.org/sites/default/files/publications/11-strategies-of-a-world-class-cybersecurity-operations-center.pdf)
 
 1. Know what you are protecting
 2. Prepare for handling incidents, define categories, response steps, escalation paths coding them into SOPs and playbooks
