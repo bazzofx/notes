@@ -2,6 +2,10 @@
 ## Modules
 [Implementing and Manage User Risk Policy](https://learn.microsoft.com/en-us/training/modules/manage-azure-active-directory-identity-protection/3-implement-manage-user-risk-policy)
 
+## Glossary
+
+- SSSR - self-service password reset
+- MDCA - Microsoft Defender for Cloud Apps
 ## Azure AD Identity Protection
 
 Identity Protection is a service that enables organizations to view the security posture of any account. Organizations can accomplish three key tasks:

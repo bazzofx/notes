@@ -12,9 +12,9 @@ title: Cyber Notes
 - [Security Certification Roadmap](https://pauljerimy.com/security-certification-roadmap/)
 - [12 CyberSecurity Professions as per Europe ECSF](https://enisaeu.github.io/ECSF/#/profiles)
 - [UK Cyber Roles](https://www.security.gov.uk/government-security-profession-career-framework/cyber-roles/)
+- [11 Strategies SOC PDF Book](https://www.mitre.org/sites/default/files/publications/11-strategies-of-a-world-class-cybersecurity-operations-center.pdf)
 # Cyber Sec Job Board
 - [ItJobsWatch](https://www.itjobswatch.co.uk/)
-
 
 |            |          |        |         |
 | ---------- | -------- | ------ | ------- |
@@ -24,6 +24,8 @@ title: Cyber Notes
 - [ ] [ BSCP - Burp Practicioner Certified](https://portswigger.net/web-security/certification)
 - [ ] [PWPA - Web Pentest Practicioner Certififed](https://certifications.tcm-sec.com/pwpa/)
 - [ ] [PWPP Web Pentest Professional](https://certifications.tcm-sec.com/pwpp/)
+- [ ] [SC-200 Microsoft SOC Analyst](https://learn.microsoft.com/en-us/credentials/certifications/security-operations-analyst/?practice-assessment-type=certification) ✍️ 
+- [ ] 
 
 # Achievements  Training Targets 2026
 - [Complete PostSwigger Academy Labs](https://portswigger.net/web-security/all-topics) ✍️ 
