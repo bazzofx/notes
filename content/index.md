@@ -16,6 +16,11 @@ title: Cyber Notes
 # Cyber Sec Job Board
 - [ItJobsWatch](https://www.itjobswatch.co.uk/)
 
+
+# Architecture
+[Zeek + Wireshark + Suricata - New way to visualize logs](https://www.youtube.com/watch?v=nsFDquaanZ8)
+
+
 |            |          |        |         |
 | ---------- | -------- | ------ | ------- |
 | ✍️ Ongoing | 🎯 To-do | ✅ Done | 🆓 Free |

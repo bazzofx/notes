@@ -1,4 +1,8 @@
 Tutorial Video
+This model is from Microsoft and it focus in using CPU power instead of GPU.
+>[NOTE]
+>However, from my tests, it was performing worse than other GPU models.
+
 
 https://www.youtube.com/watch?v=vkQJ2lJzjKY
 

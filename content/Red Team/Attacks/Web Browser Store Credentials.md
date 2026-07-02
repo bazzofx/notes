@@ -4,6 +4,13 @@ Microsoft introduced Data Protection Application Programming Interface (DPAPI) i
 In the world of red team operations, locations which credentials are stored are always a target as it will allow access to other applications or lateral movement. Organizations which are utilizing Microsoft Edge or Google Chrome for storage the credentials of their users are vulnerable due to the abuse of **CryptUnprotectData** API ([T1555.003](https://attack.mitre.org/techniques/T1555/003/)). It should be noted that reading credentials stored in browsers doesn’t require any form of elevation and it is challenging for defensive teams to detect due to the high volume of events which are generated in case of monitoring.
 
 Master keys are located in the following path and by default are not visible as these are classified as protected operating system files.
+
+# What happens during Password Extraction
+1. For attackers to extract passwords from your machine they will need the condent of the browser Local State
+`(gc "$env:LOCALAPPDATA\Google\Chrome\User Data\Local State" | ConvertFrom-Json).os_crypt.encrypted_key`
+2. Decryption Keys from the device, this is where we will need to use a tool like mimikatz, LSASS dump to get the master key to decrypt the Local State, as its locked using DPAPI encryption
+3. Another option is to use Living Off The Land [LOTLproject](https://lolbas-project.github.io/) tools like PowerShell and get the MasteKey using [PowerDPAPI](https://infosecwriteups.com/fileless-dpapi-credential-extraction-with-powershell-c9952c136463)
+---
 ## Extracting Master Keys from Browser
 
 ```
@@ -15,6 +22,10 @@ C:\users\<user>\appdata\roaming\microsoft\protect\<SID>\<MasterKey>
 (gc "$env:LOCALAPPDATA\Google\Chrome\User Data\Local State" | ConvertFrom-Json).os_crypt.encrypted_key
 ```
 
+## Password Links
+- Chrome  chrome://password-manager/passwords
+- Edge
+- FireFox
 ![[Pasted image 20250319221728.png]]
 ## Decrypting Keys
 Mimikatz was the first tool that interacted with DPAPI, and has specific modules to perform decryption operations. However, the Mimikatz encrypted key parser is broken and therefore it can no longer be used to decrypt DPAPI blobs as it fails with a message of _No Alg and/or key handle_. Instead of using Mimikatz, it is feasible to harvest the encrypted key from “_Local State_” by executing the following command from a PowerShell console:
@@ -57,6 +68,20 @@ Firefox does **not use the Chromium `Local State` file** or `os_crypt`. Instead,
 - `logins.json` — stores encrypted usernames/passwords
 ## Detection
 Any attempt to interact /download them two files key4.db and logins.json should be considered malicious.
+
+## 3 - Extracting MasterKey using LOLBAS Powershell
+This technique is more silently, as we will run PowerShell to extract the MasterKey from the computer. For the PowerShell script we will use [PowerDPAPI](https://github.com/toneillcodes/PowerDPAPI)
+Open the script and run the below function 
+````
+Invoke-PowerDPAPI -Path <file/directory path> -Format base64 -Verbose
+````
+The paths I manage to get data from are the below
+```
+# $Path = "$env:APPDATA\Microsoft\Credentials"  (Windows saved passwords)
+```
+![[Pasted image 20260528010314.png]]
+
+
 # SharpChrome
 [SharpChrome](https://github.com/GhostPack/SharpDPAPI/) is part of the SharpDPAPI and targets sensitive information stored in Chromium based browsers such as Chrome, Edge and Brave. The tool will attempt to read and decrypt the AES key from the “_Local State_” file using the cryptographic function BCrypt. The API _CryptUnprotectData()_ is used to decrypt passwords stored in browsers.
 
