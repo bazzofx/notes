@@ -1,0 +1,1 @@
+CNAP - Cloud Native Application Protection [link](https://cdn-dynmedia-1.microsoft.com/is/content/microsoftcorp/microsoft/final/en-us/microsoft-product-and-services/security/pdf/From-plan-to-deployment-Implementing-a-cloud-native-application-protection-strategy_Final.pdf)
