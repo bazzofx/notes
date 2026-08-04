@@ -1,24 +1,4 @@
 
-# Objective:
-Achieve SC-100 Miscrosoft Cybersecurity Architect 
-prereq: MS Security Operations Analyst Associate
-
-## Links 
-[Monthly Defender News](https://aka.ms/DefenderNews)
-[Become XDR Ninja - Extra MS Training Content ](https://techcommunity.microsoft.com/blog/microsoftthreatprotectionblog/become-a-microsoft-defender-xdr-ninja/1789376#community-1789376-_Toc53749484)
-[Microsoft Security Community](https://securitycommunity.microsoft.com/)
-
-## Ref
-[SC-200 Quiz Review Youtube](https://www.youtube.com/watch?v=ri43C9TE-nY&t)
-
-## Glossary
-- CEF - Common Event Format (related to Syslogs / CEF Messages)
-- UEBA - User and Entity Behavior Analytics
-- DLP - Data Loss Prevention
-- AIR - Automated Investigation Response
-- EAC - Exchange Admin Center
-- EOP - EOP anti-spam policy
-
 ## Remediate threats using MS Defender
 AIR in Microsoft Defender for Office 365 includes certain remediation actions
 - Soft delete email messages or clusters
