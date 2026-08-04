@@ -2,10 +2,35 @@
 ## Modules
 [Implementing and Manage User Risk Policy](https://learn.microsoft.com/en-us/training/modules/manage-azure-active-directory-identity-protection/3-implement-manage-user-risk-policy)
 
+## Summary and resources
+
+- Review Identity Protection basics.
+- Implement and manage a user risk policy.
+- Implement and manage sign-in risk policies.
+- Implement and manage multifactor authentication (MFA) registration policy.
+- Monitor, investigate, and remediate elevated risky users.
+- Explore Microsoft Defender for Identity
+
+
+## Resources
+
+Use these resources to discover more.
+
+- [Enabling combined security information registration in Microsoft Entra ID](https://learn.microsoft.com/en-us/entra/identity/authentication/howto-registration-mfa-sspr-combined)
+- [Manage emergency access accounts in Microsoft Entra ID](https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/security-emergency-access)
+- [How To: Configure and enable risk policies](https://learn.microsoft.com/en-us/entra/id-protection/howto-identity-protection-configure-risk-policies)
+- [What are managed identities for Azure resources?](https://learn.microsoft.com/en-us/entra/identity/managed-identities-azure-resources/overview)
+- [Remediate risks and unblock users](https://learn.microsoft.com/en-us/entra/id-protection/howto-identity-protection-remediate-unblock)
+- [Microsoft Entra Identity Protection notifications](https://learn.microsoft.com/en-us/entra/id-protection/howto-identity-protection-configure-notifications)
+- [Identity Protection policies](https://learn.microsoft.com/en-us/entra/id-protection/concept-identity-protection-policies)
+- [What is Microsoft Defender for Identity](https://learn.microsoft.com/en-us/defender-for-identity/what-is)
+
 ## Glossary
 
 - SSSR - self-service password reset
 - MDCA - Microsoft Defender for Cloud Apps
+
+
 ## Azure AD Identity Protection
 
 Identity Protection is a service that enables organizations to view the security posture of any account. Organizations can accomplish three key tasks:

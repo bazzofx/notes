@@ -1,7 +1,7 @@
 
 1. Deploy a VPS Server (Linode, or DigitalOcean)
 2. Install Dockploy
-3. From within Dockply install (N8N, and other containers)
+3. From within Dockploy install (N8N, and other containers)
 
 ## N8N Technical Docs
 [N8N Expressions Reference](https://docs.n8n.io/data/expression-reference/#array)

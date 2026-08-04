@@ -98,19 +98,13 @@
 ## SSTI
 
 - Is a input reflected on the response?
-    
 - If the payload is not working on the frontend, make sure to check also the response in Burp.
-    
 
 ## CSRF
 
 - Does every form has a CSRF token?
-    
 - Test with a random token
-    
 - Can we use GET instead of POST (can our payload be in the URI instead of the body)?
-    
-
 ## SSRF
 
 - Identify all points where the application makes a server-side HTTP request (body, headers, parameters).
