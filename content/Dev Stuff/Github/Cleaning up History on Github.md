@@ -131,6 +131,11 @@ We can see the commit we had `added api file by mistake` with the password has n
 
 # Deleting Single Commit from History
 This is a different scenario, one where we just want to delete `a single commit` from our history.
+
+>NOTE
+>Rewriting Git history does not guarantee that an exposed secret disappears immediately from GitHub. The recommended method is to use `git-filter-repo` . 
+>
+>Old commits may remain temporarily accessible through cached commit pages, pull request references, forks, or existing local clones, even after the branch history has been cleaned and force-pushed. For this reason, any exposed password, API key, or token should always be considered compromised and rotated or revoked first. If the secret is highly sensitive and the old commit is still reachable on GitHub, contact GitHub Support to request removal of cached views and retained references.
 ## Objetive
 Remove just a single commit from its history, while preserving future commits. On this commit we have introduce a file called `secret.txt` with plain password.
 However, on commit `03aab6c` we have fixed the file with the env variable.
