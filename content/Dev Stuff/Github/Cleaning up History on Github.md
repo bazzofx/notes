@@ -154,11 +154,12 @@ Change on the first line from `pick` to `drop` then if using vim `:wq` (to write
 
 If you check the logs after saving, you will see the commit history has been modified and other commits are now showing. **This is normal and the commits are not gone!** Its because Git stopped partway because it depends on the commit we dropped to show its history.
 ## 2nd - Git Rebase
-Because **we want to keep the file** we need to add to the commit again
+Because **we want to keep the file** we need to add to the commit again. Otherwise you can skip this step.
 ```bash
 git add secret.txt
 git rebase --continue
 ```
+
 ![[Pasted image 20260908121025.png]]
 >NOTE
 >If another conflict appears, resolve it similarly and run
@@ -171,4 +172,13 @@ git log --oneline
 ```
 We can see below the commit `a4c492d` has now bee gone from history.
 ![[Pasted image 20260908121215.png]]
+
+## 4th - Push local changes to Remote Repo
+Now simply push your changes to remote repo.
+```bash
+git push --force-with-lease origin main
+```
+
+That's it! - The naughty commit where you exposed your secret should now be gone from its history! In case it still showing up, you should reach out to GitHub support to help remove it, meanwhile you can keep the repo `in private` to avoid anybody from viewing it.
+
 
