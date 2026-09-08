@@ -1,4 +1,4 @@
-
+![[Pasted image 20260908122431.png]]
 On this short guide we will look into how to clean up history of our github.
 For a full official guide follow the [github link here](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/removing-sensitive-data-from-a-repository?utm_source=chatgpt.com)
 
