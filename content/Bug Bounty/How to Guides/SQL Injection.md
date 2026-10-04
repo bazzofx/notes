@@ -1,3 +1,8 @@
+---
+SQL Cheat Sheet: "[PortSwigger SQL Cheat Sheet](https://portswigger.net/web-security/sql-injection/cheat-sheet)"
+---
+
+
 
 | Attack Tactics                                                                                   | Description                                                                                                                                                                                                                                                 |
 | ------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -10,7 +15,11 @@
 | Fetch DB Version of SQL                                                                          | After identifying N of columns, check DB version<br>Microsoft, MySQL = **SELECT @@version**<br>Oracle = **SELECT * FROM v$version**<br>PostgreSQL = **SELECT version()**                                                                                    |
 | Listing the contents of the database                                                             | All except Oracle have **SELECT * FROM information_schema.tables** to reveal Table names. `table_name`                                                                                                                                                      |
 | List columns of a Table                                                                          | Next run below to show data from table **SELECT * FROM information_schema.columns WHERE table_name = 'Users'**                                                                                                                                              |
-| SQLi with Conditional access Substring                                                           |                                                                                                                                                                                                                                                             |
+| Blind SQL Injection and Substring                                                                | [[SQL Substrings and Blind Injection]]                                                                                                                                                                                                                      |
+| Error Based SQL Injection                                                                        | [[Abusing SQL Error Messages]]] Using `CAST()` to extract sensitive data                                                                                                                                                                                    |
+| Time Based SQL injection                                                                         | [[SQL Time Delay]]]  `pg_sleep(2)`                                                                                                                                                                                                                          |
+|                                                                                                  |                                                                                                                                                                                                                                                             |
+| SQL Out-of-Band OATS                                                                             | [[SQL Injection Out-of-Band OAST]] Burp Collaborator                                                                                                                                                                                                        |
 
 >[!TIPS]
 >Avoid using double quotes when parsing strings, always try single quotes first.

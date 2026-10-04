@@ -9,7 +9,7 @@ App-ID is a Palo Alto Networks traffic identification system. Currently, there a
 
 App-ID can identify not only a particular application, but also some of the specific operations of an application. For example, there are granular App-IDs for Dropbox that can be used to allow downloading of a file or the ability to edit a document but will block files from being uploaded. Click the arrows for more information about how App-IDs are delivered and managed.
 
-### Features
+### App ID Features
 - Application are identified based on heuristics, ports, patterns
 - We can also see if the app has certain certificates or has been on any data breaches.
 - It's possible to control individual functions of the app, like download and upload, fire sharing, and block, posting, fire transfer, or other features of the app.

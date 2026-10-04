@@ -23,6 +23,7 @@ We will perform an authenticated scan using Katana, which is why we are also par
  
  katana -u $target -H $token -jsl |tee katana_out.txt
 ```
+
 |Flag| Description|
 |------|------------|
 |-jsl |more indepth scan|

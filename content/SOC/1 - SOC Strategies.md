@@ -19,11 +19,5 @@ It must:
 
 - We can focus our attention on real time detection or also continuous monitoring and compliance. We have the tools for compliance monitoring but we have just started to dive into them.
 
-
-
-
-
-
-
 #### Ref:
 [11 SOC Strategies Book.pdf](https://www.mitre.org/sites/default/files/2022-04/11-strategies-of-a-world-class-cybersecurity-operations-center.pdf)
